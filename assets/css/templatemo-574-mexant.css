@@ -376,6 +376,7 @@ header
 
 .header-area .main-nav .nav li:last-child {
     padding-right: 0px;
+    color: #FFF;
 }
 
 .header-area .main-nav .nav li a {
@@ -397,8 +398,8 @@ header
 
 .header-area .main-nav .nav li:last-child a {
     font-size: 14px;
-    color: #8145F6;
     background-color: #8145F6;
+    color: #FFF;
     padding: 10px 20px !important;
     display: inline-block;
     border-radius: 5px;
@@ -411,7 +412,7 @@ header
 }
 
 .header-area .main-nav .nav li:last-child a:hover {
-    color: #8145F6;
+    color: #FFF;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a,
@@ -429,9 +430,9 @@ header
     padding-left: 25px !important;
 }
 
-.header-area .main-nav .nav li:hover a,
-.header-area .main-nav .nav li a.active {
-    color: #282424;
+.header-area .main-nav .nav li:last-child:hover a,
+.header-area .main-nav .nav li:last-child a.active {
+    color: #FFF;
 }
 
 .background-header .main-nav .nav li:hover a,
@@ -457,7 +458,7 @@ header
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu {
     position: absolute;
-    width: 140px;
+    width: 200px;
     background-color: #fff;
     box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
     overflow: hidden;
@@ -664,7 +665,6 @@ header
     .header-area {
         background-color: #f7f7f7;
         padding: 0px 15px;
-        height: 100px;
         box-shadow: none;
         text-align: center;
     }
@@ -768,7 +768,7 @@ banner
 
 .swiper-container {
     height: calc(100vh - 0px);
-    margin: 0px;
+    margin: 110px 0 0 0;
     background-color: #212741;
 }
 
@@ -890,6 +890,7 @@ section.services {
     padding: 40px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
+    height: calc(100%-30px);
 }
 
 .services .service-item:hover i {
@@ -907,8 +908,8 @@ section.services {
     float: left;
     font-size: 64px;
     color: #8145F6;
-    margin-bottom: 30px;
     margin-right: 30px;
+    height: 100%;
 }
 
 
