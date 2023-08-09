@@ -654,6 +654,9 @@ header
     .header-area .main-nav .logo {
         color: #1e1e1e;
     }
+    .header-area .main-nav .nav li:last-child a{
+        width: 100%;
+    }
     .header-area.header-sticky .nav li a:hover,
     .header-area.header-sticky .nav li a.active {
         color: #282424!important;
@@ -715,9 +718,10 @@ header
         background: #f7f7f7 !important;
         color: #191a20 !important;
     }
-    .header-area .main-nav .nav li a:hover {
+    .header-area .main-nav .nav li:last-child a {
         background: #eee !important;
         color: #8145F6!important;
+        padding: 0 !important;
     }
     .header-area .main-nav .nav li.has-sub ul.sub-menu {
         position: relative;
@@ -1464,6 +1468,11 @@ about us page
 --------------------------------------------- 
 */
 
+section.about-us .container-about {
+    display: flex;
+    width: 100%;
+}
+
 section.about-us .left-image img {
     border-radius: 10px;
 }
@@ -1478,6 +1487,18 @@ section.about-us .card-about {
     background-color: #fff;
     margin-left: 30px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    section.about-us .container-about {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    section.about-us .card-about {
+        margin: 0 0 10px 0;
+    }
 }
 
 section.about-us .accordions {
@@ -1869,9 +1890,6 @@ body {
 }
 
 @media (max-width: 992px) {
-    .header-area .main-nav .nav li:last-child {
-        display: none;
-    }
     .header-area .main-nav .nav li ul li:last-child {
         display: inline-block;
     }
@@ -1959,12 +1977,7 @@ body {
     .background-header .main-nav .logo {
         line-height: 80px;
     }
-    .header-area .main-nav .nav li.has-sub ul.sub-menu {
-        display: none;
-    }
-    .slide-inner .header-text p {
-        display: none;
-    }
+    
     .slide-inner .header-text {
         text-align: center;
         width: 80%;
