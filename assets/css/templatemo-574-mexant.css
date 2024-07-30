@@ -893,11 +893,21 @@ section.services {
     padding: 40px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
-    height: calc(100%-30px);
+    height: calc(100% - 30px);
 }
 
-.services .service-item:hover i {
+/* .services .service-item:hover i {
     margin-top: 15px;
+} */
+
+.services .service-item .btn-outline-success{
+    border-color:#8145F6;
+    color: #8145F6;
+}
+
+.services .service-item .btn-outline-success:hover{
+    background-color: #8145F6;
+    color: #FFF;
 }
 
 .services .service-item h4 {
