@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AllCert - Certificado Digital PJ A1 Promocional e Condições Especiais</title>
-    <meta name="description" content="Emissão de certificado digital PJ A1 100% online por R$140,00 em menos de 10 minutos. Garanta já o seu com condições especiais por tempo limitado!">
+    <meta name="description"
+        content="Emissão de certificado digital PJ A1 100% online por R$140,00 em menos de 10 minutos. Garanta já o seu com condições especiais por tempo limitado!">
+
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
         :root {
@@ -27,16 +35,17 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--black);
-            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll due to animations */
         }
 
         /* --- Header --- */
         .header {
             background-color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
         }
-        
+
         .logo {
             max-height: 50px;
         }
@@ -51,7 +60,8 @@
             border-radius: 50px;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            border: none; /* Ensure no default button border */
+            border: none;
+            /* Ensure no default button border */
         }
 
         .btn-cta:hover {
@@ -80,10 +90,10 @@
             transition: all 0.3s ease;
             height: 100%;
         }
-        
+
         .highlight-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
         .highlight-card .icon {
@@ -91,7 +101,7 @@
             color: var(--purple);
             margin-bottom: 1rem;
         }
-        
+
         .highlight-card h3 {
             font-size: 1.2rem;
             font-weight: 600;
@@ -102,14 +112,14 @@
             padding: 60px 0;
             background-color: var(--light-gray);
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             font-weight: 700;
             font-size: 2.2rem;
         }
-        
+
         .benefit-item {
             display: flex;
             align-items: flex-start;
@@ -127,19 +137,19 @@
         .social-proof-section {
             padding: 60px 0;
         }
-        
+
         .partner-logo {
             max-height: 60px;
             filter: grayscale(100%);
             opacity: 0.7;
             transition: all 0.3s ease;
         }
-        
+
         .partner-logo:hover {
             filter: grayscale(0%);
             opacity: 1;
         }
-        
+
         /* --- Seção Final de CTA --- */
         .final-cta-section {
             background-color: var(--purple);
@@ -147,16 +157,16 @@
             padding: 80px 0;
             text-align: center;
         }
-        
+
         .final-cta-section h2 {
             font-weight: 700;
             font-size: 2.5rem;
             margin-bottom: 2rem;
         }
-		
-		.img-invert-color {
-			filter: invert(1);
-		}
+
+        .img-invert-color {
+            filter: invert(1);
+        }
 
         /* --- Footer --- */
         .footer-lp {
@@ -164,24 +174,30 @@
             background-color: var(--black);
             color: var(--white);
         }
+
         .footer-lp h5 {
             font-weight: 600;
             color: var(--purple);
             margin-bottom: 15px;
         }
-        .footer-lp p, .footer-lp a {
+
+        .footer-lp p,
+        .footer-lp a {
             color: #ccc;
             text-decoration: none;
             font-size: 0.95rem;
         }
+
         .footer-lp a:hover {
             color: var(--white);
         }
+
         .footer-lp .map-container {
             border-radius: 10px;
             overflow: hidden;
             height: 250px;
         }
+
         .footer-lp .copyright {
             text-align: center;
             padding: 20px 0;
@@ -191,91 +207,98 @@
         }
 
         /* --- PJ A1 Promotional Section --- */
-		.pj-a1-promo-section-v2 {
-			/* Gradiente sutil para um look moderno */
-			background: linear-gradient(135deg, #8045F5 0%, #6b2ee0 100%);
-			color: var(--white);
-			padding: 80px 0;
-			overflow: hidden; /* Garante que os elementos animados não causem scroll */
-			text-align: center;
-		}
+        .pj-a1-promo-section-v2 {
+            /* Gradiente sutil para um look moderno */
+            background: linear-gradient(135deg, #8045F5 0%, #6b2ee0 100%);
+            color: var(--white);
+            padding: 80px 0;
+            overflow: hidden;
+            /* Garante que os elementos animados não causem scroll */
+            text-align: center;
+        }
 
-		.pj-a1-promo-section-v2 h2 {
-			font-weight: 700;
-			font-size: 2.5rem;
-			line-height: 1.2;
-			text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-		}
+        .pj-a1-promo-section-v2 h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
 
-		.promo-image {
-			max-width: 90%;
-			margin-bottom: 2rem;
-		}
+        .promo-image {
+            max-width: 90%;
+            margin-bottom: 2rem;
+        }
 
-		@media (min-width: 992px) {
-			.pj-a1-promo-section-v2 {
-				text-align: left;
-			}
-			.promo-image {
-				max-width: 100%;
-				margin-bottom: 0;
-			}
-		}
+        @media (min-width: 992px) {
+            .pj-a1-promo-section-v2 {
+                text-align: left;
+            }
 
-		.price-highlight-v2 {
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: var(--white); /* Alterado de amarelo para branco */
-    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35); /* Sombra mais pronunciada */
-    margin: 0.5rem 0 1rem 0;
-}
+            .promo-image {
+                max-width: 100%;
+                margin-bottom: 0;
+            }
+        }
 
-		/* Efeito de Vidro (Glassmorphism) para a lista */
-		.glass-effect {
-			background: rgba(255, 255, 255, 0.1);
-			backdrop-filter: blur(10px);
-			border: 1px solid rgba(255, 255, 255, 0.2);
-			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-		}
+        .price-highlight-v2 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--white);
+            /* Alterado de amarelo para branco */
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+            /* Sombra mais pronunciada */
+            margin: 0.5rem 0 1rem 0;
+        }
 
-		.glass-effect ul li {
-			font-size: 1.1rem;
-			font-weight: 500;
-			margin-bottom: 0.8rem;
-		}
+        /* Efeito de Vidro (Glassmorphism) para a lista */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
 
-		.glass-effect ul li:last-child {
-			margin-bottom: 0;
-		}
+        .glass-effect ul li {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
 
-		.glass-effect ul li i {
-			color: #32ff7e; /* Verde-limão para os ícones */
-			margin-right: 12px;
-			font-size: 1.2em;
-			vertical-align: middle;
-		}
+        .glass-effect ul li:last-child {
+            margin-bottom: 0;
+        }
 
-		/* --- Botão CTA Otimizado --- */
-		.btn-promo-custom {
-			padding: 18px 40px;
-			font-weight: 700;
-			font-size: 1.25rem;
-			border-radius: 50px;
-			text-transform: uppercase;
-			transition: all 0.3s ease-in-out;
-			--animate-duration: 2s; /* Desacelera a animação de pulso */
-		}
+        .glass-effect ul li i {
+            color: #32ff7e;
+            /* Verde-limão para os ícones */
+            margin-right: 12px;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
 
-		.btn-promo-custom:hover {
-			transform: scale(1.05); /* Efeito de crescimento sutil */
-			box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
-		}
+        /* --- Botão CTA Otimizado --- */
+        .btn-promo-custom {
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            --animate-duration: 2s;
+            /* Desacelera a animação de pulso */
+        }
 
-		.btn-promo-custom .fa-whatsapp {
-			font-size: 1.6rem;
-			margin-right: 12px;
-			vertical-align: -3px;
-		}
+        .btn-promo-custom:hover {
+            transform: scale(1.05);
+            /* Efeito de crescimento sutil */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .btn-promo-custom .fa-whatsapp {
+            font-size: 1.6rem;
+            margin-right: 12px;
+            vertical-align: -3px;
+        }
 
         .animate-on-scroll.in-view {
             opacity: 1;
@@ -303,9 +326,9 @@
             opacity: 1;
             transform: translateX(0);
         }
-
     </style>
 </head>
+
 <body>
 
     <header class="header">
@@ -320,34 +343,38 @@
 
     <main>
         <section class="pj-a1-promo-section-v2">
-			<div class="container">
-<div class="row align-items-center g-5 justify-content-center">
-					<div class="col-lg-8">
-            <div class="promo-content text-center">
-							<h2 class="animate__animated animate__fadeInDown">Certificado PJ A1 por Apenas:</h2>
-							<div class="price-highlight-v2 animate__animated animate__zoomIn animate__delay-0.5s">R$ 140,00</div>
-							<p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-0.7s">Condição especial por tempo limitado para modernizar sua empresa!</p>
-							
-							<div class="glass-effect p-4 rounded-3 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-								<ul class="list-unstyled text-start m-0">
-									<li><i class="fas fa-check-circle"></i> Emissão 100% Online e Rápida</li>
-									<li><i class="fas fa-check-circle"></i> Validade Jurídica Total</li>
-									<li><i class="fas fa-check-circle"></i> Essencial para NF-e e e-CAC</li>
-									<li><i class="fas fa-check-circle"></i> Pague Somente Após a Emissão</li>
-								</ul>
-							</div>
-							
-							<div class="cta-button-wrapper animate__animated animate__bounceIn animate__delay-1.5s">
-								 <a href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais." target="_blank" 
-								   class="btn btn-success btn-lg shadow-lg btn-promo-custom animate__animated animate__pulse animate__infinite">
-									<i class="fab fa-whatsapp"></i> GARANTIR MEU CERTIFICADO AGORA!
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-    </div>
-</section>
+            <div class="container">
+                <div class="row align-items-center g-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="promo-content text-center">
+                            <h2 class="animate__animated animate__fadeInDown">Certificado PJ A1 por Apenas:</h2>
+                            <div class="price-highlight-v2 animate__animated animate__zoomIn animate__delay-0.5s">R$
+                                140,00</div>
+                            <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-0.7s">Condição
+                                especial por tempo limitado para modernizar sua empresa!</p>
+
+                            <div
+                                class="glass-effect p-4 rounded-3 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                                <ul class="list-unstyled text-start m-0">
+                                    <li><i class="fas fa-check-circle"></i> Emissão 100% Online e Rápida</li>
+                                    <li><i class="fas fa-check-circle"></i> Validade Jurídica Total</li>
+                                    <li><i class="fas fa-check-circle"></i> Essencial para NF-e e e-CAC</li>
+                                    <li><i class="fas fa-check-circle"></i> Pague Somente Após a Emissão</li>
+                                </ul>
+                            </div>
+
+                            <div class="cta-button-wrapper animate__animated animate__bounceIn animate__delay-1.5s">
+                                <a href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais."
+                                    target="_blank"
+                                    class="btn btn-success btn-lg shadow-lg btn-promo-custom animate__animated animate__pulse animate__infinite">
+                                    <i class="fab fa-whatsapp"></i> GARANTIR MEU CERTIFICADO AGORA!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="highlights-section">
             <div class="container">
@@ -383,41 +410,47 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="benefits-section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Vantagens que Fazem a Diferença</h2>
                 <div class="row align-items-center">
                     <div class="col-lg-6 animate-slide-left">
-                         <img src="https://www.allcert.com.br/assets/images/sobre.jpg" alt="Profissional utilizando certificado digital" class="img-fluid rounded shadow-sm mb-4 mb-lg-0">
+                        <img src="https://www.allcert.com.br/assets/images/sobre.jpg"
+                            alt="Profissional utilizando certificado digital"
+                            class="img-fluid rounded shadow-sm mb-4 mb-lg-0">
                     </div>
                     <div class="col-lg-6 animate-slide-right">
                         <div class="benefit-item animate-on-scroll">
                             <div class="icon"><i class="fas fa-gavel"></i></div>
                             <div>
                                 <h4>Validade Jurídica</h4>
-                                <p>Assine documentos e realize transações com a mesma validade de uma assinatura em papel, com muito mais segurança.</p>
+                                <p>Assine documentos e realize transações com a mesma validade de uma assinatura em
+                                    papel, com muito mais segurança.</p>
                             </div>
                         </div>
-                         <div class="benefit-item animate-on-scroll">
+                        <div class="benefit-item animate-on-scroll">
                             <div class="icon"><i class="fas fa-lightbulb"></i></div>
                             <div>
                                 <h4>Facilidade e Conveniência</h4>
-                                <p>Elimine a necessidade de deslocamentos e impressões. Resolva tudo do seu computador ou celular.</p>
+                                <p>Elimine a necessidade de deslocamentos e impressões. Resolva tudo do seu computador
+                                    ou celular.</p>
                             </div>
                         </div>
                         <div class="benefit-item animate-on-scroll">
                             <div class="icon"><i class="fas fa-piggy-bank"></i></div>
                             <div>
                                 <h4>Economia de Tempo e Dinheiro</h4>
-                                <p>Reduza custos com papel, impressão, armazenamento e transporte de documentos, otimizando seu tempo.</p>
+                                <p>Reduza custos com papel, impressão, armazenamento e transporte de documentos,
+                                    otimizando seu tempo.</p>
                             </div>
                         </div>
-                         <div class="benefit-item animate-on-scroll">
+                        <div class="benefit-item animate-on-scroll">
                             <div class="icon"><i class="fas fa-headset"></i></div>
                             <div>
                                 <h4>Suporte Especializado</h4>
-                                <p>Nossa equipe está pronta para te auxiliar em todas as etapas do processo de emissão do seu certificado.</p>
+                                <p>Nossa equipe está pronta para te auxiliar em todas as etapas do processo de emissão
+                                    do seu certificado.</p>
                             </div>
                         </div>
                     </div>
@@ -430,71 +463,89 @@
                 <h2 class="section-title animate-on-scroll">Confiança e Credibilidade</h2>
                 <div class="row align-items-center justify-content-center text-center g-5">
                     <div class="col-6 col-md-4 col-lg-2 animate-on-scroll">
-                         <img src="https://www.allcert.com.br/assets/images/logo-Soluti.png" alt="Logo Soluti" class="partner-logo">
+                        <img src="https://www.allcert.com.br/assets/images/logo-Soluti.png" alt="Logo Soluti"
+                            class="partner-logo">
                     </div>
                     <div class="col-6 col-md-4 col-lg-2 animate-on-scroll" style="animation-delay: 0.2s;">
-                         <img src="https://www.allcert.com.br/assets/images/icp-brasil-logo.png" alt="Logo ICP Brasil" class="partner-logo">
+                        <img src="https://www.allcert.com.br/assets/images/icp-brasil-logo.png" alt="Logo ICP Brasil"
+                            class="partner-logo">
                     </div>
-                     <div class="col-6 col-md-4 col-lg-2 animate-on-scroll img-invert-color" style="animation-delay: 0.4s;">
-                         <img src="https://www.allcert.com.br/assets/images/iti-logo.png" alt="Logo ITI" class="partner-logo">
+                    <div class="col-6 col-md-4 col-lg-2 animate-on-scroll img-invert-color"
+                        style="animation-delay: 0.4s;">
+                        <img src="https://www.allcert.com.br/assets/images/iti-logo.png" alt="Logo ITI"
+                            class="partner-logo">
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section class="final-cta-section animate-on-scroll">
             <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Não perca mais tempo. <br>Modernize-se agora!</h2>
-                <p class="lead mb-4 animate__animated animate__fadeInUp">Clique no botão abaixo e fale com um de nossos especialistas pelo WhatsApp. <br>É rápido, fácil e seguro.</p>
-                 <a href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais." target="_blank" class="btn btn-light btn-cta animate__animated animate__pulse animate__infinite">
+                <p class="lead mb-4 animate__animated animate__fadeInUp">Clique no botão abaixo e fale com um de nossos
+                    especialistas pelo WhatsApp. <br>É rápido, fácil e seguro.</p>
+                <a href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais."
+                    target="_blank" class="btn btn-light btn-cta animate__animated animate__pulse animate__infinite">
                     <i class="fab fa-whatsapp"></i>Agendar Emissão Rápida
                 </a>
             </div>
         </section>
 
     </main>
-    
+
     <footer class="footer-lp">
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-5">
                     <h5>AllCert Certificados Digitais</h5>
                     <p>
-                        Parceira da Certificadora Soluti, líder no mercado brasileiro, a AllCert atua como Autoridade de Registro fornecendo soluções seguras e inovadoras em Certificação Digital.
+                        Parceira da Certificadora Soluti, líder no mercado brasileiro, a AllCert atua como Autoridade de
+                        Registro fornecendo soluções seguras e inovadoras em Certificação Digital.
                     </p>
-                     <img src="https://allcert.com.br/assets/images/logo-branca.png" alt="AllCert Logo Branca" style="max-height: 40px; margin-top: 15px;">
+                    <img src="https://allcert.com.br/assets/images/logo-branca.png" alt="AllCert Logo Branca"
+                        style="max-height: 40px; margin-top: 15px;">
                 </div>
                 <div class="col-lg-3">
                     <h5>Contato</h5>
                     <p class="mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16" style="margin-right: 8px;"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.133-.38-.232z"/></svg>
-                        <a href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais.">(31) 99524-6581</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943s-.182-.133-.38-.232z" />
+                        </svg>
+                        <a
+                            href="https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20140%2C00%20e%20gostaria%20de%20saber%20mais.">(31)
+                            99524-6581</a>
                     </p>
                     <p class="mb-2">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16" style="margin-right: 8px;"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                        </svg>
                         <a href="mailto:contato@allcert.com.br">contato@allcert.com.br</a>
                     </p>
                 </div>
                 <div class="col-lg-4">
                     <h5>Endereço</h5>
                     <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="margin-right: 8px;"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-geo-alt-fill" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path
+                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                        </svg>
                         Rua São Paulo, 1071<br>
                         Centro, Belo Horizonte - MG, 30170-907
                     </p>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-12">
-                     <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.03458090778!2d-43.943527023945215!3d-19.92294753809069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6990fe04d5f1b%3A0xea16a531624d4c0f!2sAllCert%20Certificados%20Digitais%20LTDA!5e0!3m2!1spt-PT!2sbr!4v1689553329463!5m2!1spt-PT!2sbr" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.03458090778!2d-43.943527023945215!3d-19.92294753809069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6990fe04d5f1b%3A0xea16a531624d4c0f!2sAllCert%20Certificados%20Digitais%20LTDA!5e0!3m2!1spt-PT!2sbr!4v1689553329463!5m2!1spt-PT!2sbr"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
@@ -506,8 +557,10 @@
             </div>
         </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -539,4 +592,5 @@
     </script>
 
 </body>
+
 </html>
