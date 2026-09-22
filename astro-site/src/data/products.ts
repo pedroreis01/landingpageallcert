@@ -107,7 +107,7 @@ export const productsList: Product[] = [
     subtitle: 'Certificado + Dispositivo Token USB 3.0',
     badge: 'Alta Durabilidade',
     mediaType: 'token',
-    image: '/images/produtos/pendrive.png',
+    image: '/images/produtos/pendrive.jpg',
     description: 'Certificado A3 gravado em Token USB portátil. Leve sua assinatura com segurança para qualquer computador.',
     featured: true,
     variants: [
@@ -137,7 +137,7 @@ export const productsList: Product[] = [
     title: 'e-CPF A3 com Cartão Smartcard',
     subtitle: 'Certificado + Cartão com Chip ICP-Brasil',
     mediaType: 'cartao',
-    image: '/images/produtos/cartao.png',
+    image: '/images/produtos/cartao.jpg',
     description: 'Certificado gravado em cartão rígido com criptografia avançada.',
     variants: [
       {
@@ -166,7 +166,7 @@ export const productsList: Product[] = [
     title: 'e-CPF A3 com Cartão e Leitora',
     subtitle: 'Kit Completo: Cartão Smartcard + Leitora USB',
     mediaType: 'leitora',
-    image: '/images/produtos/cartao-pendrive.png',
+    image: '/images/produtos/cartao-pendrive.jpg',
     description: 'Solução completa com cartão e a leitora USB pronta para uso imediato no seu computador.',
     variants: [
       {
@@ -246,7 +246,7 @@ export const productsList: Product[] = [
     subtitle: 'Certificado Empresarial + Token USB',
     badge: 'Corporativo',
     mediaType: 'token',
-    image: '/images/produtos/pendrive.png',
+    image: '/images/produtos/pendrive.jpg',
     description: 'Máxima segurança para o sócio ou representante legal assinar pela empresa de qualquer máquina.',
     featured: true,
     variants: [
@@ -276,7 +276,7 @@ export const productsList: Product[] = [
     title: 'e-CNPJ A3 com Cartão Smartcard',
     subtitle: 'Certificado + Cartão Criptográfico',
     mediaType: 'cartao',
-    image: '/images/produtos/cartao.png',
+    image: '/images/produtos/cartao.jpg',
     description: 'Segurança reforçada em formato cartão para diretoria e departamento fiscal.',
     variants: [
       {
@@ -305,7 +305,7 @@ export const productsList: Product[] = [
     title: 'e-CNPJ A3 com Cartão e Leitora',
     subtitle: 'Kit Completo Empresarial',
     mediaType: 'leitora',
-    image: '/images/produtos/cartao-pendrive.png',
+    image: '/images/produtos/cartao-pendrive.jpg',
     description: 'Equipe o setor contábil/financeiro com kit completo de leitora USB e cartão com chip.',
     variants: [
       {
@@ -356,7 +356,7 @@ export const productsList: Product[] = [
     subtitle: 'Certificado de 3 Anos + Token USB',
     badge: 'Mais Escolhido OAB',
     mediaType: 'token',
-    image: '/images/produtos/pendrive.png',
+    image: '/images/produtos/pendrive.jpg',
     description: 'Essencial para peticionamento eletrônico no PJe, e-SAJ e assinar prontuários de saúde.',
     featured: true,
     variants: [
@@ -374,7 +374,7 @@ export const productsList: Product[] = [
     title: 'Certificado OAB com Cartão Smartcard',
     subtitle: 'Certificado de 3 Anos + Cartão Criptográfico',
     mediaType: 'cartao',
-    image: '/images/produtos/cartao.png',
+    image: '/images/produtos/cartao.jpg',
     description: 'Grave na carteira da Ordem/Conselho ou no cartão smartcard AllCert.',
     variants: [
       {
@@ -391,7 +391,7 @@ export const productsList: Product[] = [
     title: 'Certificado OAB com Cartão e Leitora',
     subtitle: 'Kit Completo para Advogados e Médicos',
     mediaType: 'leitora',
-    image: '/images/produtos/cartao-pendrive.png',
+    image: '/images/produtos/cartao-pendrive.jpg',
     description: 'Kit completo com leitora USB para usar a carteira do conselho profissional no notebook.',
     variants: [
       {
