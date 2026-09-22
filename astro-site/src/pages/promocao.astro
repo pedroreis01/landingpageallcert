@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { site } from '../data/site';
+
+const whatsappPromo =
+  'https://wa.me/5531995246581?text=Ol%C3%A1!%20Vi%20o%20an%C3%BAncio%20do%20certificado%20digital%20por%20R%24%20144%2C90%20e%20gostaria%20de%20saber%20mais.';
+
+const checklist = [
+  'Emissão 100% online e rápida',
+  'Validade jurídica total (ICP-Brasil)',
+  'Essencial para NF-e e e-CAC',
+  'Pague somente após a emissão',
+];
+
+const offerLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Offer',
+  itemOffered: {
+    '@type': 'Service',
+    name: 'Certificado Digital Pessoa Jurídica A1 (e-CNPJ)',
+    provider: { '@type': 'Organization', name: site.legalName, url: site.url },
+  },
+  price: '144.90',
+  priceCurrency: 'BRL',
+  priceValidUntil: '2026-12-31',
+  availability: 'https://schema.org/InStock',
+  url: `${site.url}/promocao`,
+};
+---
+
+<Base
+  title="Promoção Certificado Digital PJ A1 por R$ 144,90 | AllCert"
+  description="Certificado Digital PJ A1 (e-CNPJ) por R$ 144,90 com emissão 100% online. Condição especial por tempo limitado — garanta o seu com a AllCert."
+  jsonLd={[offerLd]}
+>
+  <Header />
+  <main>
+    <section class="bg-ink text-white">
+      <div class="mx-auto max-w-4xl px-4 py-16 text-center md:py-20">
+        <p class="text-xs font-semibold uppercase tracking-wider text-lavender">
+          Oferta por tempo limitado
+        </p>
+        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+          Certificado PJ A1 com condição especial
+        </h1>
+        <p class="mt-5 text-lg text-white/60 line-through">De R$ 200,00</p>
+        <p class="-mt-1 text-5xl font-extrabold text-lavender md:text-6xl">Por R$ 144,90</p>
+        <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70">
+          Modernize sua empresa com o e-CNPJ A1 emitido 100% online por videoconferência, com
+          validade jurídica total e essencial para NF-e e e-CAC.
+        </p>
+        <div class="mt-8">
+          <a
+            href={whatsappPromo}
+            target="_blank"
+            rel="noopener"
+            class="inline-block rounded-md bg-primary px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+          >
+            Garantir meu desconto agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-16">
+        <ul class="grid gap-4 sm:grid-cols-2">
+          {checklist.map((item) => (
+            <li class="flex items-start gap-3 rounded-lg border border-border p-5">
+              <svg class="mt-0.5 h-5 w-5 flex-none text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-sm font-medium text-ink">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-neutral">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <h2 class="text-center text-2xl font-semibold tracking-tight text-ink md:text-3xl">
+          Por que aproveitar agora
+        </h2>
+        <div class="mt-8 grid gap-5 sm:grid-cols-3">
+          <div class="rounded-lg bg-white p-6 text-center">
+            <p class="font-semibold text-ink">Tempo limitado</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+              Garanta já seu certificado digital com condições especiais.
+            </p>
+          </div>
+          <div class="rounded-lg bg-white p-6 text-center">
+            <p class="font-semibold text-ink">Processo 100% online</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+              Validação por videoconferência, sem sair de casa.
+            </p>
+          </div>
+          <div class="rounded-lg bg-white p-6 text-center">
+            <p class="font-semibold text-ink">Simples, rápido e seguro</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+              Emitido por Autoridade de Registro em parceria com a Soluti.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-14 text-center">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink">Não perca essa condição</h2>
+        <p class="mx-auto mt-3 max-w-xl text-ink-soft">
+          Fale agora com nossa equipe pelo WhatsApp e garanta seu certificado PJ A1 por R$ 144,90.
+        </p>
+        <a
+          href={whatsappPromo}
+          target="_blank"
+          rel="noopener"
+          class="mt-6 inline-block rounded-md bg-primary px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+        >
+          Garantir meu desconto agora
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Base>

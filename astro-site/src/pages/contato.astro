@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { site } from '../data/site';
+
+const contactPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: `Contato — ${site.name}`,
+  url: `${site.url}/contato`,
+  mainEntity: {
+    '@type': 'Organization',
+    name: site.legalName,
+    url: site.url,
+    email: site.email,
+    telephone: '+55-31-97151-7322',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Belo Horizonte',
+      addressRegion: 'MG',
+      addressCountry: 'BR',
+    },
+  },
+};
+---
+
+<Base
+  title="Contato — Fale com a AllCert | AllCert"
+  description="Fale com a AllCert por WhatsApp, telefone ou e-mail. Autoridade de Registro ICP-Brasil em Belo Horizonte, atendimento em todo o Brasil por videoconferência."
+  jsonLd={[contactPageLd]}
+>
+  <Header />
+  <main>
+    <section class="bg-ink text-white">
+      <div class="mx-auto max-w-4xl px-4 py-16 text-center md:py-20">
+        <p class="text-xs font-semibold uppercase tracking-wider text-lavender">Contato</p>
+        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Fale com a AllCert</h1>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+          Escolha o canal de sua preferência. Nossa equipe responde rápido e ajuda você a emitir
+          seu certificado digital ainda hoje.
+        </p>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Base>

@@ -21,5 +21,6 @@ export const nav = [
   { href: '/certificado-digital-pessoa-fisica', label: 'Pessoa Física' },
   { href: '/certificado-digital-pessoa-juridica', label: 'Pessoa Jurídica' },
   { href: '/certificado-digital-oab', label: 'OAB' },
-  { href: '/#contato', label: 'Contato' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' },
 ] as const;
