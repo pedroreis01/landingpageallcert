@@ -1,0 +1,35 @@
+---
+const steps = [
+  {
+    n: '1',
+    title: 'Escolha o certificado',
+    desc: 'A1 no computador/celular ou A3 em cart\u00e3o/token. Ajudamos voc\u00ea a escolher o ideal.',
+  },
+  {
+    n: '2',
+    title: 'Valide por videoconfer\u00eancia',
+    desc: 'Chamada r\u00e1pida com nosso agente de registro. S\u00f3 precisa dos documentos em m\u00e3os.',
+  },
+  {
+    n: '3',
+    title: 'Receba e comece a usar',
+    desc: 'Emiss\u00e3o no mesmo dia, com suporte na instala\u00e7\u00e3o e primeiro uso.',
+  },
+];
+---
+
+<section class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <p class="text-xs font-semibold uppercase tracking-wider text-primary text-center">Como funciona</p>
+    <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink text-center md:text-4xl">Emiss\u00e3o em 3 passos</h2>
+    <div class="mt-10 grid gap-6 sm:grid-cols-3">
+      {steps.map((s) => (
+        <div class="rounded-lg border border-border bg-neutral p-6 text-center">
+          <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">{s.n}</span>
+          <p class="mt-4 font-semibold text-ink">{s.title}</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
