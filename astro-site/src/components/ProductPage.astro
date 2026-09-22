@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  h1: string;
+  quickAnswer: string;
+  benefits: { title: string; desc: string }[];
+  serviceLd: Record<string, unknown>;
+}
+
+const { title, description, eyebrow, h1, quickAnswer, benefits, serviceLd } = Astro.props;
+---
+
+<Base title={title} description={description} jsonLd={[serviceLd]}>
+  <Header />
+  <main>
+    <section class="bg-ink text-white">
+      <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <p class="text-xs font-semibold uppercase tracking-wider text-lavender">{eyebrow}</p>
+        <h1 class="mt-3 max-w-3xl text-3xl font-bold tracking-tight md:text-5xl">{h1}</h1>
+        <!-- Quick-answer block (GEO): resposta direta, citável por AI engines -->
+        <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">{quickAnswer}</p>
+        <div class="mt-8">
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener"
+            class="inline-block rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+          >
+            Emitir agora pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-3xl">Por que emitir com a AllCert</h2>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {benefits.map((b) => (
+            <div class="rounded-lg border border-border p-6">
+              <p class="font-semibold text-ink">{b.title}</p>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-neutral">
+      <div class="mx-auto max-w-6xl px-4 py-14 text-center">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink">Pronto para emitir?</h2>
+        <p class="mx-auto mt-3 max-w-xl text-ink-soft">
+          Validação por videoconferência, emissão no mesmo dia e suporte completo.
+        </p>
+        <a
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener"
+          class="mt-6 inline-block rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+        >
+          Falar com um especialista
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Base>

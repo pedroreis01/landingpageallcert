@@ -1,0 +1,24 @@
+---
+const seals = [
+  { src: '/images/icp-brasil-logo.png', alt: 'ICP-Brasil — Infraestrutura de Chaves Públicas Brasileira' },
+  { src: '/images/iti-logo.png', alt: 'ITI — Instituto Nacional de Tecnologia da Informação' },
+  { src: '/images/logo-Soluti.png', alt: 'Soluti — Autoridade Certificadora parceira' },
+];
+---
+
+<section aria-label="Selos de confiança" class="border-b border-border bg-white">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-12 gap-y-6 px-4 py-8">
+    <p class="w-full text-center text-xs font-semibold uppercase tracking-wider text-ink-soft md:w-auto">
+      Autoridade de Registro credenciada
+    </p>
+    {seals.map((seal) => (
+      <img
+        src={seal.src}
+        alt={seal.alt}
+        height="40"
+        class="h-10 w-auto object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+        loading="lazy"
+      />
+    ))}
+  </div>
+</section>

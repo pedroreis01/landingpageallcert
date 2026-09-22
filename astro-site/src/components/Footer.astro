@@ -1,0 +1,49 @@
+---
+import { site, nav } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3">
+    <div>
+      <img src="/images/logo-branca.png" alt="AllCert" width="140" height="36" class="h-9 w-auto" loading="lazy" />
+      <p class="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+        {site.description}
+      </p>
+    </div>
+    <nav aria-label="Links do rodapé">
+      <p class="text-xs font-semibold uppercase tracking-wider text-lavender">Navegação</p>
+      <ul class="mt-4 space-y-2">
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} class="text-sm text-white/70 transition-colors hover:text-lavender">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wider text-lavender">Contato</p>
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li><a class="transition-colors hover:text-lavender" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><a class="transition-colors hover:text-lavender" href={site.phoneHref}>{site.phoneDisplay}</a></li>
+        <li>{site.city}</li>
+      </ul>
+      <a
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener"
+        class="mt-5 inline-block rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+      >
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-5 text-xs text-white/50">
+      <p>© {year} {site.legalName}. Todos os direitos reservados.</p>
+      <a href="/privacidade" class="transition-colors hover:text-lavender">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>

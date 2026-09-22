@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Política de Privacidade | AllCert"
+  description="Política de privacidade e proteção de dados (LGPD) da AllCert Certificados Digitais."
+>
+  <Header />
+  <main class="bg-white">
+    <div class="mx-auto max-w-3xl px-4 py-16">
+      <h1 class="text-3xl font-bold tracking-tight text-ink">Política de Privacidade</h1>
+      <p class="mt-4 leading-relaxed text-ink-soft">
+        A {site.legalName} trata dados pessoais em conformidade com a Lei Geral de Proteção de
+        Dados (Lei nº 13.709/2018 — LGPD). Os dados coletados neste site (nome, contato e
+        informações enviadas por formulário ou WhatsApp) são usados exclusivamente para
+        atendimento, emissão de certificados digitais e comunicações solicitadas por você.
+      </p>
+      <p class="mt-4 leading-relaxed text-ink-soft">
+        Para exercer seus direitos de titular (acesso, correção, exclusão), escreva para
+        <a class="font-semibold text-primary" href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+      <!-- TODO Fase 2: texto jurídico completo revisado -->
+    </div>
+  </main>
+  <Footer />
+</Base>

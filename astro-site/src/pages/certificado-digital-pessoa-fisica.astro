@@ -1,0 +1,39 @@
+---
+import ProductPage from '../components/ProductPage.astro';
+import { site } from '../data/site';
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Certificado Digital Pessoa Física (e-CPF)',
+  provider: { '@type': 'Organization', name: site.legalName, url: site.url },
+  areaServed: 'BR',
+  description:
+    'Emissão de certificado digital e-CPF ICP-Brasil (A1 e A3) para pessoa física, com validação por videoconferência.',
+};
+
+const benefits = [
+  {
+    title: 'Emissão 100% online',
+    desc: 'Validação por videoconferência com agente de registro, conforme normas do ITI — sem deslocamento.',
+  },
+  {
+    title: 'A1 ou A3',
+    desc: 'A1 no computador/celular (1 ano) ou A3 em cartão/token (até 5 anos). Ajudamos você a escolher.',
+  },
+  {
+    title: 'Suporte na instalação',
+    desc: 'Nossa equipe acompanha a instalação e o primeiro uso: e-CAC, Receita, assinaturas e mais.',
+  },
+];
+---
+
+<ProductPage
+  title="Certificado Digital Pessoa Física (e-CPF) — emissão por videoconferência | AllCert"
+  description="Emita seu e-CPF ICP-Brasil (A1 ou A3) por videoconferência com a AllCert. Emissão no mesmo dia, suporte completo e validade jurídica em todo o Brasil."
+  eyebrow="e-CPF · ICP-Brasil"
+  h1="Certificado Digital para Pessoa Física"
+  quickAnswer="O certificado digital de pessoa física (e-CPF) é sua identidade eletrônica: permite assinar documentos com validade jurídica e acessar serviços como e-CAC, Receita Federal e Gov.br. Na AllCert, a emissão é feita por videoconferência e concluída no mesmo dia."
+  benefits={benefits}
+  serviceLd={serviceLd}
+/>

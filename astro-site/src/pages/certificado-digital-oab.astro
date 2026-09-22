@@ -1,0 +1,39 @@
+---
+import ProductPage from '../components/ProductPage.astro';
+import { site } from '../data/site';
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Certificado Digital OAB (advogados e conselhos profissionais)',
+  provider: { '@type': 'Organization', name: site.legalName, url: site.url },
+  areaServed: 'BR',
+  description:
+    'Emissão de certificado digital ICP-Brasil para advogados (OAB) e profissionais de conselhos (CRM, CRC), com validação por videoconferência.',
+};
+
+const benefits = [
+  {
+    title: 'Peticionamento sem fila',
+    desc: 'Assine e protocolize petições nos tribunais (PJe, e-SAJ, Projudi) com validade jurídica plena.',
+  },
+  {
+    title: 'Vinculado à sua OAB',
+    desc: 'Certificado emitido com os dados da sua inscrição profissional, aceito em todos os sistemas.',
+  },
+  {
+    title: 'Emissão por videoconferência',
+    desc: 'Valide online com agente de registro e receba no mesmo dia, com suporte na instalação.',
+  },
+];
+---
+
+<ProductPage
+  title="Certificado Digital OAB — emissão por videoconferência | AllCert"
+  description="Emita seu certificado digital OAB (e CRM/CRC) por videoconferência com a AllCert. Peticionamento eletrônico com validade jurídica, emissão no mesmo dia."
+  eyebrow="OAB · CRM · CRC · ICP-Brasil"
+  h1="Certificado Digital para OAB e Conselhos"
+  quickAnswer="O certificado digital OAB é a identidade eletrônica do advogado vinculada à inscrição profissional: exigido para peticionamento eletrônico (PJe, e-SAJ, Projudi) e assinaturas com validade jurídica. Na AllCert, a emissão é por videoconferência e concluída no mesmo dia."
+  benefits={benefits}
+  serviceLd={serviceLd}
+/>

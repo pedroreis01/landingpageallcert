@@ -1,0 +1,63 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="bg-ink text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-[1.2fr_1fr] md:items-center md:py-28">
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-lavender">
+        Autoridade de Registro · ICP-Brasil
+      </p>
+      <h1 class="mt-6 text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl">
+        Emita seu Certificado Digital por <span class="text-lavender">videoconferência</span>, sem sair de casa
+      </h1>
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+        e-CPF, e-CNPJ e OAB com validação 100% online. Atendimento humano em Belo Horizonte
+        e emissão para todo o Brasil, em parceria com a Certificadora Soluti.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener"
+          class="rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+        >
+          Emitir agora pelo WhatsApp
+        </a>
+        <a
+          href="#produtos"
+          class="rounded-md border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-lavender hover:text-lavender"
+        >
+          Ver produtos
+        </a>
+      </div>
+    </div>
+
+    <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-wider text-lavender">Como funciona</p>
+      <ol class="mt-4 space-y-4">
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold">1</span>
+          <div>
+            <p class="font-semibold">Escolha o certificado</p>
+            <p class="text-sm text-white/60">A1 no computador/celular ou A3 em cartão/token.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold">2</span>
+          <div>
+            <p class="font-semibold">Valide por videoconferência</p>
+            <p class="text-sm text-white/60">Chamada rápida com nosso agente de registro.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold">3</span>
+          <div>
+            <p class="font-semibold">Receba e comece a usar</p>
+            <p class="text-sm text-white/60">Emissão no mesmo dia, com suporte pós-venda.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>

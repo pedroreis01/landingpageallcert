@@ -1,0 +1,17 @@
+# AllCert
+
+> Autoridade de Registro de Certificados Digitais ICP-Brasil em Belo Horizonte. Emissão por videoconferência para pessoa física, pessoa jurídica e OAB, em parceria com a Certificadora Soluti.
+
+## Páginas
+
+- [Home](https://allcert.com.br/): emissão por videoconferência, produtos, como funciona, FAQ
+- [Certificado Digital Pessoa Física](https://allcert.com.br/certificado-digital-pessoa-fisica): e-CPF A1/A3 para PF
+- [Certificado Digital Pessoa Jurídica](https://allcert.com.br/certificado-digital-pessoa-juridica): e-CNPJ para empresas
+- [Certificado Digital OAB](https://allcert.com.br/certificado-digital-oab): certificado para advogados (OAB/CRM/CRC)
+- [Contato](https://allcert.com.br/#contato): WhatsApp (31) 99524-6581, contato@allcert.com.br, Belo Horizonte - MG
+
+## Contato
+
+- WhatsApp: +55 31 99524-6581
+- Telefone: +55 31 97151-7322
+- E-mail: contato@allcert.com.br

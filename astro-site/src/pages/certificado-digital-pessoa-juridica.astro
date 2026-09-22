@@ -1,0 +1,39 @@
+---
+import ProductPage from '../components/ProductPage.astro';
+import { site } from '../data/site';
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Certificado Digital Pessoa Jurídica (e-CNPJ)',
+  provider: { '@type': 'Organization', name: site.legalName, url: site.url },
+  areaServed: 'BR',
+  description:
+    'Emissão de certificado digital e-CNPJ ICP-Brasil (A1 e A3) para empresas: NF-e, Receita, e-Social e obrigações fiscais.',
+};
+
+const benefits = [
+  {
+    title: 'NF-e sem dor de cabeça',
+    desc: 'Emita notas fiscais eletrônicas e cumpra obrigações acessórias com o e-CNPJ sempre válido.',
+  },
+  {
+    title: 'Emissão por videoconferência',
+    desc: 'Sócio ou representante legal valida online, com agendamento rápido e emissão no mesmo dia.',
+  },
+  {
+    title: 'Renovação monitorada',
+    desc: 'Avisamos antes do vencimento para sua empresa nunca parar por certificado expirado.',
+  },
+];
+---
+
+<ProductPage
+  title="Certificado Digital Pessoa Jurídica (e-CNPJ) — emissão por videoconferência | AllCert"
+  description="Emita o e-CNPJ da sua empresa (A1 ou A3) por videoconferência com a AllCert. NF-e, e-CAC, e-Social e obrigações fiscais sem burocracia."
+  eyebrow="e-CNPJ · ICP-Brasil"
+  h1="Certificado Digital para Pessoa Jurídica"
+  quickAnswer="O certificado digital de pessoa jurídica (e-CNPJ) é a identidade eletrônica da sua empresa: exigido para NF-e, e-CAC, e-Social e a maioria das obrigações fiscais. Na AllCert, a emissão é feita por videoconferência e concluída no mesmo dia."
+  benefits={benefits}
+  serviceLd={serviceLd}
+/>

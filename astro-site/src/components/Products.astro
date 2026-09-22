@@ -1,0 +1,64 @@
+---
+const products = [
+  {
+    title: 'Certificado PJ',
+    tag: 'e-CNPJ',
+    desc: 'NF-e, acesso à Receita e obrigações fiscais da sua empresa com agilidade e segurança.',
+    href: '/certificado-digital-pessoa-juridica',
+    icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6',
+  },
+  {
+    title: 'Certificado PF',
+    tag: 'e-CPF',
+    desc: 'Assine documentos e acesse serviços do Governo como pessoa física, sem burocracia.',
+    href: '/certificado-digital-pessoa-fisica',
+    icon: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21a8 8 0 0 1 16 0',
+  },
+  {
+    title: 'Certificado OAB',
+    tag: 'OAB · CRM · CRC',
+    desc: 'Assinatura com validade jurídica para peticionar e atuar nos sistemas profissionais.',
+    href: '/certificado-digital-oab',
+    icon: 'M12 3v18M5 7h14M7 7l-3 6a3 3 0 0 0 6 0L7 7Zm10 0-3 6a3 3 0 0 0 6 0l-3-6Z',
+  },
+  {
+    title: 'Certificado Nuvem',
+    tag: 'Cloud',
+    desc: 'Seu certificado na nuvem, acessível de qualquer dispositivo, sem mídia física.',
+    href: '/#contato',
+    icon: 'M6 19a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.7-1.5A4.5 4.5 0 0 1 17.5 19H6Z',
+  },
+];
+---
+
+<section id="produtos" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-20">
+    <p class="text-xs font-semibold uppercase tracking-wider text-primary">Produtos</p>
+    <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink md:text-4xl">Soluções Completas</h2>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      Do e-CPF ao e-CNPJ em nuvem: escolha o certificado ideal para o seu momento, com emissão
+      por videoconferência e suporte de verdade.
+    </p>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {products.map((p) => (
+        <a
+          href={p.href}
+          class="group flex flex-col rounded-lg border border-border bg-white p-6 transition hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_30px_rgba(128,64,240,0.12)]"
+        >
+          <span class="flex h-11 w-11 items-center justify-center rounded-md bg-primary-soft text-primary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d={p.icon} />
+            </svg>
+          </span>
+          <span class="mt-4 text-xs font-semibold uppercase tracking-wider text-primary">{p.tag}</span>
+          <span class="mt-1 text-lg font-semibold text-ink">{p.title}</span>
+          <span class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{p.desc}</span>
+          <span class="mt-4 text-sm font-semibold text-primary">
+            Saiba mais <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

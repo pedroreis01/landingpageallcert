@@ -1,0 +1,46 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="sobre" class="bg-white">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 md:grid-cols-2">
+    <div>
+      <img
+        src="/images/sobre.jpg"
+        alt="Equipe AllCert em atendimento de certificação digital em Belo Horizonte"
+        width="600"
+        height="400"
+        class="w-full rounded-lg border border-border object-cover"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wider text-primary">Sobre a AllCert</p>
+      <h2 class="mt-2 text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+        Certificação digital com atendimento humano
+      </h2>
+      <p class="mt-4 leading-relaxed text-ink-soft">
+        A AllCert é uma empresa especializada em certificação digital. Desde o início, nosso
+        compromisso é tornar a tecnologia acessível para empresas e profissionais de todas as
+        áreas, com soluções práticas e seguras.
+      </p>
+      <p class="mt-4 leading-relaxed text-ink-soft">
+        Em parceria com a Certificadora <strong class="text-ink">Soluti</strong>, oferecemos
+        Certificados Digitais com confiança e praticidade. Atuamos como Autoridade de Registro,
+        com atendimento personalizado, suporte dedicado e emissão por videoconferência para
+        todo o Brasil.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="rounded-full bg-primary-soft px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          Autoridade de Registro
+        </span>
+        <span class="rounded-full bg-primary-soft px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          Parceria Soluti
+        </span>
+        <span class="rounded-full bg-primary-soft px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          {site.city}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

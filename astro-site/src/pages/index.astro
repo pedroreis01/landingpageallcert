@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Products from '../components/Products.astro';
+import About from '../components/About.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { site } from '../data/site';
+
+const faqItems = [
+  {
+    q: 'O que é um Certificado Digital e para que serve?',
+    a: 'O Certificado Digital é uma identidade eletrônica (e-CPF ou e-CNPJ) que permite assinar documentos com validade jurídica, acessar sistemas do Governo (Receita, e-CAC, NF-e) e realizar transações com segurança, sem precisar de papel.',
+  },
+  {
+    q: 'Qual a diferença entre certificado A1 e A3?',
+    a: 'O A1 é um arquivo instalado no computador ou celular, com validade de 1 ano — prático e mais barato. O A3 fica em mídia criptográfica (cartão ou token), tem validade de até 5 anos e oferece camada extra de segurança.',
+  },
+  {
+    q: 'É possível emitir o certificado por videoconferência?',
+    a: 'Sim. A validação de identidade é feita em uma chamada de vídeo rápida com nosso agente de registro, conforme as normas do ITI. Você só precisa de um dispositivo com câmera e seus documentos originais em mãos.',
+  },
+  {
+    q: 'Quanto tempo leva para emitir?',
+    a: 'Após a videoconferência de validação, a emissão é concluída no mesmo dia. Nossa equipe acompanha você em todo o processo, inclusive na instalação e no primeiro uso.',
+  },
+  {
+    q: 'O certificado digital é válido em todo o Brasil?',
+    a: 'Sim. Certificados ICP-Brasil têm validade jurídica nacional, garantida pela MP 2.200-2/2001, e são aceitos por Receita Federal, cartórios, tribunais e sistemas como e-Social e NF-e.',
+  },
+  {
+    q: 'Como funciona a renovação?',
+    a: 'A renovação pode ser feita por videoconferência antes do vencimento, sem recomeçar o processo do zero. A AllCert avisa com antecedência para você não ficar sem o certificado.',
+  },
+];
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.legalName,
+  url: site.url,
+  logo: `${site.url}/images/logoAllcert.png`,
+  email: site.email,
+  telephone: '+55-31-97151-7322',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Belo Horizonte',
+    addressRegion: 'MG',
+    addressCountry: 'BR',
+  },
+};
+
+const localBusinessLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  url: site.url,
+  image: `${site.url}/images/logoAllcert.png`,
+  email: site.email,
+  telephone: '+55-31-97151-7322',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Belo Horizonte',
+    addressRegion: 'MG',
+    addressCountry: 'BR',
+  },
+  areaServed: 'Brasil',
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<Base
+  title="AllCert — Certificado Digital por videoconferência | e-CPF, e-CNPJ e OAB"
+  description={site.description}
+  jsonLd={[organizationLd, localBusinessLd, faqLd]}
+>
+  <Header />
+  <main>
+    <Hero />
+    <TrustBar />
+    <Products />
+    <About />
+    <Faq items={faqItems} />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Base>
