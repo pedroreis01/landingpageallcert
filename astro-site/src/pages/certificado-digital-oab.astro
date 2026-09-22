@@ -1,39 +1,38 @@
 ---
-import ProductPage from '../components/ProductPage.astro';
-import { site } from '../data/site';
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getProductsByCategory } from '../data/products';
 
-const serviceLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Certificado Digital OAB (advogados e conselhos profissionais)',
-  provider: { '@type': 'Organization', name: site.legalName, url: site.url },
-  areaServed: 'BR',
-  description:
-    'Emissão de certificado digital ICP-Brasil para advogados (OAB) e profissionais de conselhos (CRM, CRC), com validação por videoconferência.',
-};
-
-const benefits = [
-  {
-    title: 'Peticionamento sem fila',
-    desc: 'Assine e protocolize petições nos tribunais (PJe, e-SAJ, Projudi) com validade jurídica plena.',
-  },
-  {
-    title: 'Vinculado à sua OAB',
-    desc: 'Certificado emitido com os dados da sua inscrição profissional, aceito em todos os sistemas.',
-  },
-  {
-    title: 'Emissão por videoconferência',
-    desc: 'Valide online com agente de registro e receba no mesmo dia, com suporte na instalação.',
-  },
-];
+const products = getProductsByCategory('oab');
 ---
 
-<ProductPage
-  title="Certificado Digital OAB — emissão por videoconferência | AllCert"
-  description="Emita seu certificado digital OAB (e CRM/CRC) por videoconferência com a AllCert. Peticionamento eletrônico com validade jurídica, emissão no mesmo dia."
-  eyebrow="OAB · CRM · CRC · ICP-Brasil"
-  h1="Certificado Digital para OAB e Conselhos"
-  quickAnswer="O certificado digital OAB é a identidade eletrônica do advogado vinculada à inscrição profissional: exigido para peticionamento eletrônico (PJe, e-SAJ, Projudi) e assinaturas com validade jurídica. Na AllCert, a emissão é por videoconferência e concluída no mesmo dia."
-  benefits={benefits}
-  serviceLd={serviceLd}
-/>
+<Base 
+  title="Certificado Digital para Advogados, Médicos e Contadores (OAB / CRM / CRC) | AllCert"
+  description="Certificado Digital profissional para advogados (PJe), médicos (prontuário eletrônico) e contadores com condições exclusivas."
+>
+  <section class="bg-gradient-to-b from-slate-900 to-purple-950 py-16 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="inline-block rounded-full bg-purple-500/20 px-4 py-1 text-xs font-semibold text-purple-300 ring-1 ring-purple-500/30">
+          Uso Profissional
+        </span>
+        <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+          OAB / CRM / CRC / Profissionais Liberas
+        </h1>
+        <p class="mt-4 text-base text-purple-200/80 sm:text-lg">
+          Condições e preços especiais para advogados atuarem no PJe, médicos em prontuários e contadores.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {products.map(product => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

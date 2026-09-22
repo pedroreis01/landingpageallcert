@@ -2,47 +2,110 @@
 import { site } from '../data/site';
 ---
 
-<section class="bg-ink text-white">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-[1.2fr_1fr] md:items-center md:py-28">
-    <div>
-      <p class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-lavender">
-        Autoridade de Registro · ICP-Brasil
-      </p>
-      <h1 class="mt-6 text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl">
-        Emita seu Certificado Digital por <span class="text-lavender">videoconferência</span>, sem sair de casa
-      </h1>
-      <p class="mt-5 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
-        e-CPF, e-CNPJ e OAB com validação 100% online. Atendimento humano em Belo Horizonte
-        e emissão para todo o Brasil, em parceria com a Certificadora Soluti.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a
-          href={site.whatsapp}
-          target="_blank"
-          rel="noopener"
-          class="rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
-        >
-          Emitir agora pelo WhatsApp
-        </a>
-        <a
-          href="#produtos"
-          class="rounded-md border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-lavender hover:text-lavender"
-        >
-          Ver produtos
-        </a>
-      </div>
-    </div>
+<section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-purple-950 to-slate-900 py-16 lg:py-24 text-white">
+  <!-- Efeitos de Luz de Fundo (Glow Effect) -->
+  <div class="absolute top-1/4 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl"></div>
+  <div class="absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-indigo-600/15 blur-3xl"></div>
 
-    <div class="relative">
-      <img
-        src="/images/hero-flat.png"
-        alt="Validação de identidade por videoconferência para certificado digital ICP-Brasil"
-        width="600"
-        height="400"
-        class="w-full rounded-lg border border-white/10 object-cover"
-        loading="eager"
-        fetchpriority="high"
-      />
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      
+      <!-- Lado Esquerdo: Copy Headline B2B -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <!-- Badge Superior -->
+        <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-1.5 text-xs font-semibold text-purple-300 ring-1 ring-purple-500/30 backdrop-blur-md">
+          <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Validade Jurídica Garantida — Padrão ICP-Brasil</span>
+        </div>
+
+        <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
+          A Assinatura Digital Oficial da sua <span class="bg-gradient-to-r from-purple-400 via-indigo-300 to-purple-200 bg-clip-text text-transparent">Empresa e Carreira</span>
+        </h1>
+
+        <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Assine contratos corporativos, emita notas fiscais e acesse sistemas governamentais com segurança de nível bancário e emissão 100% online por videoconferência em minutos.
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a
+            href="#produtos"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-purple-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-purple-600/30 transition-all duration-200 hover:bg-purple-500 hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Emitir Meu Certificado</span>
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-6 py-4 text-base font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-slate-600"
+          >
+            <svg class="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.572 4.216 1.582 6.041l-1.613 5.959 6.096-1.599c1.766.963 3.771 1.599 5.935 1.599 6.627 0 12-5.373 12-12s-5.373-12-12-12zm6.275 16.994c-.264.743-1.542 1.365-2.146 1.455-.572.086-1.306.122-2.115-.138-1.564-.501-3.486-1.517-4.887-2.919-1.402-1.402-2.418-3.323-2.919-4.887-.26-.809-.224-1.543-.138-2.115.09-.604.712-1.882 1.455-2.146.264-.094.551-.143.834-.143.238 0 .463.029.664.137.264.143.582.748.799 1.258.217.51.364.888.399.967.036.079.056.171.018.267-.038.096-.079.167-.167.264s-.175.212-.264.301c-.089.089-.187.185-.08.368.107.183.477.787 1.026 1.275.707.629 1.303.824 1.486.913.183.089.291.071.398-.053.107-.124.463-.538.587-.723.124-.185.247-.156.411-.094.164.062 1.042.492 1.22.58.178.089.296.133.34.208.044.075.044.436-.22 1.179z" />
+            </svg>
+            <span>Falar com Especialista</span>
+          </a>
+        </div>
+
+        <!-- Indicadores de Confiança -->
+        <div class="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-slate-800/80 pt-6 text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Videoconferência em 10 Minutos</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>Criptografia Cripto-ICP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Mockup Interativo do Notebook + Assinatura Corporativa -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-full max-w-lg group">
+          <!-- Moldura com Glow Suave -->
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 opacity-30 blur-xl transition-all duration-500 group-hover:opacity-50"></div>
+          
+          <div class="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900 p-2 shadow-2xl">
+            <!-- Imagem do Notebook com Assinatura Corporativa -->
+            <img 
+              src="/images/hero-notebook-signature.jpg" 
+              alt="Assinatura Digital de Contrato Corporativo em Notebook" 
+              class="w-full h-auto rounded-xl object-cover shadow-inner transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+
+            <!-- Card Flutuante de Validação de Assinatura -->
+            <div class="absolute bottom-4 left-4 right-4 rounded-xl bg-slate-950/90 p-3.5 backdrop-blur-md border border-purple-500/30 flex items-center justify-between shadow-xl">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/20 text-purple-400 border border-purple-500/40">
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+                    <span>Contrato Autenticado</span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  </h4>
+                  <p class="text-[11px] text-slate-400">Chancela Digital ICP-Brasil / AllCert</p>
+                </div>
+              </div>
+              <span class="rounded-md bg-emerald-500/10 px-2 py-1 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+                100% VÁLIDO
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
