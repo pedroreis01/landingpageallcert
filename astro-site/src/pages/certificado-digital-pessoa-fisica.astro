@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import PageBanner from '../components/PageBanner.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProductsByCategory } from '../data/products';
 
@@ -16,14 +15,17 @@ const products = getProductsByCategory('pf');
 >
   <Header />
   <main>
-    <PageBanner
-      eyebrow="Certificado Digital para Você"
-      title="Sua assinatura digital, com a segurança que sua rotina profissional exige"
-      description="Assine contratos, declare Imposto de Renda e acesse portais do Governo com validade jurídica de onde estiver. Escolha entre arquivo A1, Nuvem Bird ID ou mídias físicas (Token e Cartão) — emissão por videoconferência, no mesmo dia."
-      image="/images/banner-pf.jpg"
-      imageAlt="Profissional utilizando certificado digital pessoa física em notebook"
-      ctaText="Emitir meu e-CPF agora"
-    />
+    <section class="border-b border-border bg-white py-10 md:py-14">
+      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Certificado Digital para Você</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+          Sua assinatura digital, com a segurança que sua rotina exige
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Escolha entre arquivo A1, Nuvem Bird ID ou mídias físicas (Token e Cartão) — emissão por videoconferência, no mesmo dia.
+        </p>
+      </div>
+    </section>
 
     <section class="bg-slate-50 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

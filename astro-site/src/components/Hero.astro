@@ -45,7 +45,7 @@ import { site } from '../data/site';
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-6 py-4 text-base font-semibold text-slate-200 transition-all hover:bg-slate-800 hover:border-slate-600"
           >
             <svg class="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12.031 0c-6.627 0-12 5.373-12 12 0 2.159.572 4.216 1.582 6.041l-1.613 5.959 6.096-1.599c1.766.963 3.771 1.599 5.935 1.599 6.627 0 12-5.373 12-12s-5.373-12-12-12zm6.275 16.994c-.264.743-1.542 1.365-2.146 1.455-.572.086-1.306.122-2.115-.138-1.564-.501-3.486-1.517-4.887-2.919-1.402-1.402-2.418-3.323-2.919-4.887-.26-.809-.224-1.543-.138-2.115.09-.604.712-1.882 1.455-2.146.264-.094.551-.143.834-.143.238 0 .463.029.664.137.264.143.582.748.799 1.258.217.51.364.888.399.967.036.079.056.171.018.267-.038.096-.079.167-.167.264s-.175.212-.264.301c-.089.089-.187.185-.08.368.107.183.477.787 1.026 1.275.707.629 1.303.824 1.486.913.183.089.291.071.398-.053.107-.124.463-.538.587-.723.124-.185.247-.156.411-.094.164.062 1.042.492 1.22.58.178.089.296.133.34.208.044.075.044.436-.22 1.179z" />
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
             </svg>
             <span>Falar com Especialista</span>
           </a>
@@ -68,22 +68,61 @@ import { site } from '../data/site';
         </div>
       </div>
 
-      <!-- Lado Direito: Mockup Interativo do Notebook + Assinatura Corporativa -->
+      <!-- Lado Direito: Ilustração Vetorial — Token USB / Validação em Nuvem -->
       <div class="lg:col-span-5 relative flex justify-center">
         <div class="relative w-full max-w-lg group">
           <!-- Moldura com Glow Suave -->
           <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 opacity-30 blur-xl transition-all duration-500 group-hover:opacity-50"></div>
-          
-          <div class="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900 p-2 shadow-2xl">
-            <!-- Imagem do Notebook com Assinatura Corporativa -->
-            <img 
-              src="/images/hero-notebook-signature.jpg" 
-              alt="Assinatura Digital de Contrato Corporativo em Notebook" 
-              class="w-full h-auto rounded-xl object-cover shadow-inner transition-transform duration-500 group-hover:scale-[1.02]"
-            />
+
+          <div class="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-xl p-6 shadow-2xl">
+            <!-- Barra estilo janela de app -->
+            <div class="mb-6 flex items-center gap-1.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-400/60"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400/60"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/60"></span>
+              <span class="ml-3 text-[11px] font-medium text-slate-500">allcert.com.br/validacao</span>
+            </div>
+
+            <!-- Ilustração: Token USB conectando à Nuvem ICP -->
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-6">
+              <div class="flex flex-col items-center gap-2.5">
+                <div class="flex h-16 w-16 items-center justify-center rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-indigo-500/10">
+                  <svg class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 3v4H7a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2h-2V3m0 4h2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12h2" />
+                  </svg>
+                </div>
+                <span class="text-[10px] font-semibold text-slate-400">Token A3</span>
+              </div>
+
+              <div class="relative h-px flex-1 bg-gradient-to-r from-purple-500/60 via-indigo-400/80 to-emerald-400/60">
+                <span class="absolute top-1/2 left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.6)] animate-ping"></span>
+                <span class="absolute top-1/2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-300"></span>
+              </div>
+
+              <div class="flex flex-col items-center gap-2.5">
+                <div class="flex h-16 w-16 items-center justify-center rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5">
+                  <svg class="h-8 w-8 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 18a4 4 0 01-.4-7.98A5.5 5.5 0 0117 8.5c0 .17-.01.34-.03.5A4 4 0 0117 18H7z" />
+                  </svg>
+                </div>
+                <span class="text-[10px] font-semibold text-slate-400">Nuvem ICP</span>
+              </div>
+            </div>
+
+            <!-- Barra de Progresso de Validação -->
+            <div class="mt-6">
+              <div class="mb-1.5 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Validando identidade digital...</span>
+                <span class="font-semibold text-emerald-400">100%</span>
+              </div>
+              <div class="h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+                <div class="h-full w-full rounded-full bg-gradient-to-r from-purple-500 to-emerald-400"></div>
+              </div>
+            </div>
 
             <!-- Card Flutuante de Validação de Assinatura -->
-            <div class="absolute bottom-4 left-4 right-4 rounded-xl bg-slate-950/90 p-3.5 backdrop-blur-md border border-purple-500/30 flex items-center justify-between shadow-xl">
+            <div class="mt-5 rounded-xl border border-purple-500/30 bg-slate-950/90 p-3.5 backdrop-blur-md flex items-center justify-between shadow-xl">
               <div class="flex items-center gap-3">
                 <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/20 text-purple-400 border border-purple-500/40">
                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,7 +131,7 @@ import { site } from '../data/site';
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span>Contrato Autenticado</span>
+                    <span>Certificado Validado</span>
                     <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                   </h4>
                   <p class="text-[11px] text-slate-400">Chancela Digital ICP-Brasil / AllCert</p>

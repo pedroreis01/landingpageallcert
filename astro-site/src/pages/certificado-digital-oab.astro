@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import PageBanner from '../components/PageBanner.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProductsByCategory } from '../data/products';
 
@@ -16,14 +15,17 @@ const products = getProductsByCategory('oab');
 >
   <Header />
   <main>
-    <PageBanner
-      eyebrow="Condições Especiais para Profissionais"
-      title="A ferramenta certa para advogados, médicos e contadores atuarem sem interrupção"
-      description="Peticione no PJe, assine prontuários eletrônicos e valide documentos com a agilidade que sua profissão exige. Condições exclusivas para OAB, CRM e CRC, com emissão por videoconferência e validade de até 3 anos."
-      image="/images/banner-oab.jpg"
-      imageAlt="Profissional liberal utilizando certificado digital OAB, CRM ou CRC"
-      ctaText="Emitir meu certificado profissional"
-    />
+    <section class="border-b border-border bg-white py-10 md:py-14">
+      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Condições Especiais para Profissionais</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+          A ferramenta certa para advogados, médicos e contadores
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Peticione no PJe, assine prontuários eletrônicos e valide documentos. Condições exclusivas para OAB, CRM e CRC.
+        </p>
+      </div>
+    </section>
 
     <section class="bg-slate-50 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

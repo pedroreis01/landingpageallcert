@@ -19,11 +19,11 @@ const hasMultipleVariants = product.variants.length > 1;
 
   <div>
     <!-- Imagem da Mídia com Efeito Glossy -->
-    <div class="relative mb-5 flex h-40 items-center justify-center rounded-xl bg-slate-50 p-4 transition-colors group-hover:bg-purple-50/40">
-      <img 
-        src={product.image} 
-        alt={product.title} 
-        class="max-h-32 object-contain transition-transform duration-300 group-hover:scale-105"
+    <div class="relative mb-5 flex h-56 items-center justify-center rounded-xl bg-gradient-to-b from-slate-50 to-slate-100/60 p-4 transition-colors group-hover:from-purple-50/60 group-hover:to-purple-50/20">
+      <img
+        src={product.image}
+        alt={product.title}
+        class="max-h-44 object-contain transition-transform duration-300 group-hover:scale-105"
         loading="lazy"
       />
     </div>

@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import PageBanner from '../components/PageBanner.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProductsByCategory } from '../data/products';
 
@@ -16,14 +15,17 @@ const products = getProductsByCategory('pj');
 >
   <Header />
   <main>
-    <PageBanner
-      eyebrow="Certificado Digital para sua Empresa"
-      title="Mantenha sua empresa operando sem burocracia e sem filas"
-      description="Emita notas fiscais, acesse o e-CAC, Conectividade Social e o Simples Nacional com o e-CNPJ. Validação por videoconferência, emissão no mesmo dia e suporte dedicado para o sócio, contador ou representante legal."
-      image="/images/banner-pj.jpg"
-      imageAlt="Representante legal de empresa emitindo certificado digital pessoa jurídica"
-      ctaText="Emitir e-CNPJ da minha empresa"
-    />
+    <section class="border-b border-border bg-white py-10 md:py-14">
+      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Certificado Digital para sua Empresa</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+          Mantenha sua empresa operando sem burocracia e sem filas
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Emita notas fiscais, acesse o e-CAC, Conectividade Social e o Simples Nacional com o e-CNPJ, com emissão no mesmo dia.
+        </p>
+      </div>
+    </section>
 
     <section class="bg-slate-50 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
