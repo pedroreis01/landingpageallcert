@@ -1,38 +1,40 @@
 ---
 import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import PageBanner from '../components/PageBanner.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProductsByCategory } from '../data/products';
 
 const products = getProductsByCategory('pf');
 ---
 
-<Base 
+<Base
   title="Certificado Digital Pessoa Física (e-CPF) | AllCert"
   description="Emita seu Certificado Digital Pessoa Física (e-CPF A1, A3, Token, Cartão ou Bird ID em Nuvem) 100% online por videoconferência com suporte especializado."
 >
-  <section class="bg-gradient-to-b from-slate-900 to-purple-950 py-16 text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="inline-block rounded-full bg-purple-500/20 px-4 py-1 text-xs font-semibold text-purple-300 ring-1 ring-purple-500/30">
-          Certificados para Você
-        </span>
-        <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          Certificado Digital Pessoa Física (e-CPF)
-        </h1>
-        <p class="mt-4 text-base text-purple-200/80 sm:text-lg">
-          Assine documentos com validade jurídica de onde estiver. Escolha entre modelos em arquivo A1, Nuvem Bird ID ou mídias físicas (Token e Cartão).
-        </p>
-      </div>
-    </div>
-  </section>
+  <Header />
+  <main>
+    <PageBanner
+      eyebrow="Certificado Digital para Você"
+      title="Sua assinatura digital, com a segurança que sua rotina profissional exige"
+      description="Assine contratos, declare Imposto de Renda e acesse portais do Governo com validade jurídica de onde estiver. Escolha entre arquivo A1, Nuvem Bird ID ou mídias físicas (Token e Cartão) — emissão por videoconferência, no mesmo dia."
+      image="/images/banner-pf.jpg"
+      imageAlt="Profissional utilizando certificado digital pessoa física em notebook"
+      ctaText="Emitir meu e-CPF agora"
+    />
 
-  <section class="py-16 bg-slate-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map(product => (
-          <ProductCard product={product} />
-        ))}
+    <section class="bg-slate-50 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map(product => (
+            <ProductCard product={product} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
 </Base>

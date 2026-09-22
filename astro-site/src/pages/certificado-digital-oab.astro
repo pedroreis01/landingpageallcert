@@ -1,38 +1,40 @@
 ---
 import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import PageBanner from '../components/PageBanner.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProductsByCategory } from '../data/products';
 
 const products = getProductsByCategory('oab');
 ---
 
-<Base 
+<Base
   title="Certificado Digital para Advogados, Médicos e Contadores (OAB / CRM / CRC) | AllCert"
   description="Certificado Digital profissional para advogados (PJe), médicos (prontuário eletrônico) e contadores com condições exclusivas."
 >
-  <section class="bg-gradient-to-b from-slate-900 to-purple-950 py-16 text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="inline-block rounded-full bg-purple-500/20 px-4 py-1 text-xs font-semibold text-purple-300 ring-1 ring-purple-500/30">
-          Uso Profissional
-        </span>
-        <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          OAB / CRM / CRC / Profissionais Liberas
-        </h1>
-        <p class="mt-4 text-base text-purple-200/80 sm:text-lg">
-          Condições e preços especiais para advogados atuarem no PJe, médicos em prontuários e contadores.
-        </p>
-      </div>
-    </div>
-  </section>
+  <Header />
+  <main>
+    <PageBanner
+      eyebrow="Condições Especiais para Profissionais"
+      title="A ferramenta certa para advogados, médicos e contadores atuarem sem interrupção"
+      description="Peticione no PJe, assine prontuários eletrônicos e valide documentos com a agilidade que sua profissão exige. Condições exclusivas para OAB, CRM e CRC, com emissão por videoconferência e validade de até 3 anos."
+      image="/images/banner-oab.jpg"
+      imageAlt="Profissional liberal utilizando certificado digital OAB, CRM ou CRC"
+      ctaText="Emitir meu certificado profissional"
+    />
 
-  <section class="py-16 bg-slate-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map(product => (
-          <ProductCard product={product} />
-        ))}
+    <section class="bg-slate-50 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map(product => (
+            <ProductCard product={product} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
 </Base>

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
+import PageBanner from '../components/PageBanner.astro';
 import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
@@ -35,18 +36,14 @@ const aboutPageLd = {
 >
   <Header />
   <main>
-    <section class="bg-ink text-white">
-      <div class="mx-auto max-w-4xl px-4 py-16 text-center md:py-20">
-        <p class="text-xs font-semibold uppercase tracking-wider text-lavender">Sobre nós</p>
-        <h1 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-          Uma Autoridade de Registro ICP-Brasil com atendimento humano
-        </h1>
-        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-          A AllCert é uma Autoridade de Registro em parceria com a Certificadora Soluti, sediada
-          em Belo Horizonte e com atendimento em todo o Brasil por videoconferência.
-        </p>
-      </div>
-    </section>
+    <PageBanner
+      eyebrow="Sobre nós"
+      title="Uma Autoridade de Registro ICP-Brasil com atendimento humano, do início ao fim"
+      description="A AllCert nasceu para tirar a burocracia do caminho de empresas e profissionais. Somos Autoridade de Registro em parceria com a Certificadora Soluti, sediados em Belo Horizonte, com atendimento consultivo em todo o Brasil por videoconferência."
+      image="/images/banner-sobre.jpg"
+      imageAlt="Equipe da AllCert em atendimento consultivo de certificação digital"
+      ctaText="Conhecer a equipe AllCert"
+    />
 
     <About />
 
