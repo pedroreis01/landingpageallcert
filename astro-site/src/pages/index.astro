@@ -49,9 +49,7 @@ const organizationLd = {
   telephone: '+55-31-97151-7322',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Belo Horizonte',
-    addressRegion: 'MG',
-    addressCountry: 'BR',
+    ...site.addressLd,
   },
 };
 
@@ -65,9 +63,7 @@ const localBusinessLd = {
   telephone: '+55-31-97151-7322',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Belo Horizonte',
-    addressRegion: 'MG',
-    addressCountry: 'BR',
+    ...site.addressLd,
   },
   areaServed: 'Brasil',
 };

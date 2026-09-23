@@ -20,9 +20,7 @@ const aboutPageLd = {
     telephone: '+55-31-97151-7322',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Belo Horizonte',
-      addressRegion: 'MG',
-      addressCountry: 'BR',
+      ...site.addressLd,
     },
     // TODO Fase 2: incluir CNPJ e sameAs (Google Business, redes) assim que confirmados
   },
