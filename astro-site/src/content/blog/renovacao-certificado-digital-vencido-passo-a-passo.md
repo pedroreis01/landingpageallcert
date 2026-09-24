@@ -9,7 +9,7 @@ keywords:
   - "renovar certificado digital vencido"
   - "renovação e-cnpj videoconferência"
   - "renovacao certificado digital bh"
-image: "/images/banner-pf.jpg"
+image: "/images/blog-renovacao.jpg"
 imageAlt: "Renovação de certificado digital por videoconferência"
 featured: false
 faq:

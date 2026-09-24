@@ -9,7 +9,7 @@ keywords:
   - "certificado digital oab bh"
   - "certificado pje advogados mg"
   - "certificado oab belo horizonte"
-image: "/images/banner-pf.jpg"
+image: "/images/blog-oab-advogado.jpg"
 imageAlt: "Advogado assinando petição com certificado OAB"
 featured: false
 faq:

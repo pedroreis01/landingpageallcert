@@ -9,7 +9,7 @@ keywords:
   - "diferença certificado a1 e a3"
   - "certificado a1 ou a3"
   - "qual certificado escolher"
-image: "/images/banner-pj.jpg"
+image: "/images/blog-a1-vs-a3.jpg"
 imageAlt: "Comparativo entre Certificado A1 e A3"
 featured: true
 faq:

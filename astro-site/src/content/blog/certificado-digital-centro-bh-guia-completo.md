@@ -9,7 +9,7 @@ keywords:
   - "certificado digital centro bh"
   - "certificado digital rua sao paulo bh"
   - "onde fazer certificado digital em bh"
-image: "/images/banner-pf.jpg"
+image: "/images/blog-bh-centro.jpg"
 imageAlt: "Centro de Belo Horizonte Rua São Paulo AllCert"
 featured: true
 faq:

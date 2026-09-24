@@ -9,7 +9,7 @@ keywords:
   - "como instalar certificado a1"
   - "instalar certificado pfx no windows"
   - "certificado digital a1 macbook"
-image: "/images/banner-pj.jpg"
+image: "/images/blog-instalacao-a1.jpg"
 imageAlt: "Instalação do certificado A1 no computador"
 featured: false
 faq:

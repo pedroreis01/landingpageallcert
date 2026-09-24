@@ -11,7 +11,7 @@ keywords:
   - "onde emitir certificado digital em bh"
   - "autoridade de registro belo horizonte"
   - "certificado digital centro bh"
-image: "/images/hero-notebook-signature.jpg"
+image: "/images/blog-bh-centro.jpg"
 imageAlt: "Profissional assinando documento com certificado digital em Belo Horizonte"
 featured: true
 related:

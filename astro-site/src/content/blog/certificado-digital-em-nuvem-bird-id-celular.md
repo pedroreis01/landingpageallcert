@@ -9,7 +9,7 @@ keywords:
   - "certificado digital no celular"
   - "certificado em nuvem bh"
   - "bird id soluti"
-image: "/images/banner-pf.jpg"
+image: "/images/blog-nuvem-bird-id.jpg"
 imageAlt: "Pessoa usando certificado digital no celular"
 featured: true
 faq:

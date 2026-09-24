@@ -11,7 +11,7 @@ keywords:
   - "como emitir e-cnpj"
   - "e-cnpj a1 ou a3"
   - "certificado digital para empresa"
-image: "/images/banner-pj.jpg"
+image: "/images/blog-e-cnpj.jpg"
 imageAlt: "Empresário usando certificado digital e-CNPJ no computador"
 featured: true
 related:
