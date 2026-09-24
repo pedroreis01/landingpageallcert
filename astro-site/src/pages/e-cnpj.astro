@@ -1,0 +1,297 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/e-cnpj';
+
+const title = 'Certificado Digital e-CNPJ | Emissão Online — AllCert';
+const description =
+  'e-CNPJ ICP-Brasil a partir de R$ 200,00: emita por videoconferência no mesmo dia para NF-e, e-CAC, eSocial e Conectividade Social. A1, A3 em token ou cartão, com suporte na instalação.';
+
+const destaques = getProductsByIds(['ecnpj-a1', 'ecnpj-a3-token', 'ecnpj-a3-cartao', 'ecnpj-a3-somente']);
+
+const usos = [
+  {
+    title: 'Emissão de NF-e e NFS-e',
+    text: 'Assinar e transmitir nota fiscal eletrônica de produto (NF-e), de serviço (NFS-e, incluindo o sistema da Prefeitura de Belo Horizonte), CT-e e MDF-e.',
+  },
+  {
+    title: 'e-CAC da Receita Federal',
+    text: 'Acessar o Centro Virtual de Atendimento em nome da empresa: DCTFWeb, parcelamentos, situação fiscal, procurações eletrônicas e caixa postal.',
+  },
+  {
+    title: 'eSocial, EFD-Reinf e FGTS Digital',
+    text: 'Transmitir eventos de folha, retenções e obrigações trabalhistas. Empresas com empregados precisam do certificado para não perder prazo.',
+  },
+  {
+    title: 'Conectividade Social e Caixa',
+    text: 'Enviar arquivos do FGTS, emitir guias e acessar os canais da Caixa Econômica Federal em nome da pessoa jurídica.',
+  },
+  {
+    title: 'Licitações e portais de compras',
+    text: 'Cadastrar-se e assinar propostas em pregões eletrônicos, no Portal de Compras do Governo Federal e em portais estaduais e municipais.',
+  },
+  {
+    title: 'Contratos e documentos da empresa',
+    text: 'Assinar contratos, distratos, atas e procurações com validade jurídica equiparada à assinatura de próprio punho (MP 2.200-2/2001).',
+  },
+];
+
+const documentos = [
+  {
+    title: 'Documentos do representante legal',
+    text: 'Documento de identidade original com foto e assinatura (RG, CNH ou carteira de conselho profissional), CPF e comprovante de endereço recente.',
+  },
+  {
+    title: 'Ato constitutivo atualizado',
+    text: 'Contrato social, requerimento de empresário ou estatuto, com a última alteração consolidada e registro na Junta Comercial.',
+  },
+  {
+    title: 'Comprovante de inscrição no CNPJ',
+    text: 'Cartão CNPJ ou o comprovante emitido no site da Receita Federal, com a situação cadastral ativa.',
+  },
+  {
+    title: 'Ata de eleição da diretoria',
+    text: 'Obrigatória para sociedades anônimas, associações, cooperativas e fundações, para comprovar quem representa a pessoa jurídica.',
+  },
+  {
+    title: 'Procuração, quando for o caso',
+    text: 'Se quem faz a validação não é o representante legal indicado no ato constitutivo, é necessária procuração específica por instrumento público.',
+  },
+  {
+    title: 'MEI e empresário individual',
+    text: 'Certificado da Condição de MEI (CCMEI) ou requerimento de empresário, além dos documentos pessoais do titular.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha a mídia',
+    text: 'A1 (arquivo no computador, 1 ano) ou A3 (token USB ou cartão com chip, até 3 anos). Em dúvida, o agente de registro ajuda a decidir em 2 minutos.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Conferimos tudo <strong>antes</strong> de agendar. É o passo que evita validação reprovada e a necessidade de remarcar.',
+  },
+  {
+    title: 'Faça a validação',
+    text: 'Por videoconferência com um agente de registro ou presencialmente no Centro de Belo Horizonte, de segunda a sexta, das 9h às 18h.',
+  },
+  {
+    title: 'Instale e comece a emitir',
+    text: 'Acompanhamos a instalação no computador ou no seu emissor de nota fiscal e o primeiro acesso ao e-CAC.',
+  },
+];
+
+const faq = [
+  {
+    q: 'O que é o e-CNPJ?',
+    a: 'O e-CNPJ é o certificado digital ICP-Brasil emitido em nome de uma pessoa jurídica. Ele identifica a empresa em sistemas de governo e permite assinar documentos eletrônicos em nome dela, com validade jurídica garantida pela MP 2.200-2/2001.',
+  },
+  {
+    q: 'Qual a diferença entre e-CNPJ e e-CPF?',
+    a: 'O e-CPF identifica a pessoa física e o e-CNPJ identifica a empresa. Emissão de NF-e e a maioria dos acessos ao e-CAC em nome da pessoa jurídica exigem o e-CNPJ. Algumas obrigações aceitam o e-CPF do representante legal ou de um procurador com procuração eletrônica.',
+  },
+  {
+    q: 'e-CNPJ A1 ou A3: qual escolher?',
+    a: 'O A1 é um arquivo instalado exclusivamente no computador, vale 1 ano e é o preferido de quem integra o certificado a um emissor de NF-e ou a um ERP, porque não depende de mídia conectada. O A3 fica gravado em token USB ou cartão com chip, vale até 3 anos e a chave nunca sai da mídia — mais seguro para quem assina de máquinas diferentes. Nenhum dos dois funciona em celular; para isso existe o certificado em nuvem.',
+  },
+  {
+    q: 'O e-CNPJ A1 pode ser instalado em mais de um computador?',
+    a: 'Sim. Como é um arquivo, o e-CNPJ A1 pode ser importado em mais de uma máquina da empresa, desde que sob responsabilidade do titular e com a senha de importação. Guarde o arquivo e a senha em local seguro: a AllCert e a Autoridade Certificadora não têm cópia dessa senha.',
+  },
+  {
+    q: 'Quem precisa passar pela validação de identidade?',
+    a: 'O representante legal indicado no contrato social, estatuto ou requerimento de empresário. Quando a empresa tem administradores em conjunto, qualquer um deles pode ser o titular, desde que o ato constitutivo permita. Terceiros só com procuração por instrumento público.',
+  },
+  {
+    q: 'MEI precisa de e-CNPJ?',
+    a: 'Depende da atividade. O MEI que emite apenas NFS-e em municípios que dispensam certificado pode operar sem ele, mas passa a precisar quando o município exige assinatura digital, quando emite NF-e de produto ou quando quer acessar o e-CAC em nome do CNPJ. Muitos MEIs optam pelo e-CNPJ A1 pelo custo baixo e pela previsibilidade.',
+  },
+  {
+    q: 'Quanto custa o e-CNPJ na AllCert?',
+    a: 'O e-CNPJ A1 (1 ano) começa em R$ 200,00. As opções A3 partem de R$ 210,00 para quem já tem token ou cartão compatível e de R$ 280,00 no kit com token USB incluído. Todos com nota fiscal e suporte na instalação.',
+  },
+  {
+    q: 'Quanto tempo leva a emissão?',
+    a: 'Com a documentação conferida, a validação por videoconferência leva de 10 a 20 minutos e o certificado é emitido no mesmo dia.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital e-CNPJ',
+    description,
+    serviceType: 'Certificado Digital e-CNPJ ICP-Brasil',
+    path,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado e-CNPJ', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Certificado digital para empresas"
+      title="e-CNPJ: o certificado digital da sua empresa, emitido hoje"
+      description="Assine notas fiscais, acesse o e-CAC, transmita eSocial e EFD-Reinf e participe de licitações. Emissão por videoconferência em todo o Brasil ou presencial no Centro de BH."
+      bullets={[
+        'e-CNPJ A1 a partir de <strong>R$ 200,00</strong>, com nota fiscal',
+        'A1 (arquivo no computador) ou A3 (token USB e cartão) de até 3 anos',
+        'Validação por videoconferência em 10 a 20 minutos',
+        'Suporte na instalação e no primeiro acesso ao e-CAC e ao emissor de NF-e',
+      ]}
+      image="/images/banner-pj.jpg"
+      imageAlt="Empresário assinando documentos com certificado digital e-CNPJ"
+      ctaText="Emitir meu e-CNPJ"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Para que serve"
+      title="O que a sua empresa faz com o e-CNPJ"
+      intro="O e-CNPJ é exigido em praticamente toda obrigação fiscal e trabalhista transmitida em nome da pessoa jurídica."
+      items={usos}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Preços AllCert</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Opções de e-CNPJ: A1, A3 em token e A3 em cartão
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preço de Autoridade de Registro, sem taxa de intermediação. Precisa do certificado da
+          pessoa física? Veja o <a class="font-semibold text-primary hover:underline" href="/e-cpf">e-CPF</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Documentos necessários"
+      title="O que preparar antes de agendar a validação"
+      intro="Conferimos tudo por WhatsApp antes do agendamento. Documento desatualizado é a causa número um de validação reprovada."
+      items={documentos}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos até o e-CNPJ funcionando"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Como escolher o e-CNPJ certo para a sua operação
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            O e-CNPJ é sempre o mesmo certificado no que importa juridicamente: ele identifica a
+            empresa dentro da ICP-Brasil. A decisão real é sobre <strong>mídia</strong> e
+            <strong> validade</strong>, e ela muda conforme quem usa o certificado no dia a dia.
+          </p>
+
+          <h3>Quando o A1 é a melhor escolha</h3>
+          <p>
+            O <a href="/certificado-digital-a1">e-CNPJ A1</a> é um arquivo digital instalado
+            exclusivamente no computador, com validade de 1 ano. É o formato preferido de quem
+            emite nota fiscal em volume: o emissor de NF-e, o ERP ou o sistema da contabilidade lê
+            o certificado direto da máquina, sem token conectado e sem intervenção humana a cada
+            assinatura. Como é arquivo, pode ser instalado em mais de um computador da empresa —
+            com a senha de importação sob controle do titular. Ele <strong>não funciona em
+            celular</strong>.
+          </p>
+
+          <h3>Quando o A3 compensa</h3>
+          <p>
+            O <a href="/certificado-digital-a3">e-CNPJ A3</a> grava a chave privada dentro de um
+            token USB ou cartão com chip, de onde ela nunca sai. Vale até 3 anos, o que dilui o
+            custo anual, e é a opção de quem assina de computadores diferentes ou precisa de uma
+            camada extra de controle: sem a mídia em mãos, ninguém assina pela empresa. Em troca,
+            exige drivers instalados e a mídia conectada ao computador a cada uso.
+          </p>
+
+          <h3>E se a empresa precisa assinar pelo celular?</h3>
+          <p>
+            Nem A1 nem A3 funcionam no smartphone. A única modalidade pensada para isso é o
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem (Bird ID)</a>: a chave
+            fica em hardware criptográfico certificado e cada assinatura é autorizada pelo
+            aplicativo. É comum sócios que viajam manterem o e-CNPJ A1 na contabilidade e um
+            certificado em nuvem no celular para aprovações urgentes.
+          </p>
+
+          <h3>Quem assina: empresa ou representante?</h3>
+          <p>
+            O e-CNPJ traz o CNPJ da empresa e o nome do representante legal. Se esse representante
+            mudar — venda de quotas, alteração de administrador, renúncia —, o certificado deve ser
+            revogado e um novo emitido com o representante atual. Vale a mesma lógica na
+            <a href="/renovacao-certificado-digital"> renovação</a>: confira o quadro societário
+            antes, para não emitir no nome de quem já saiu.
+          </p>
+
+          <p>
+            Para o passo a passo completo, com prints do e-CAC e os erros mais comuns, leia
+            <a href="/blog/e-cnpj-o-que-e-como-emitir"> e-CNPJ: o que é e como emitir</a>. Se a sua
+            empresa está em Belo Horizonte, a página
+            <a href="/certificado-digital-pessoa-juridica"> certificado digital para pessoa jurídica</a>
+            reúne todas as combinações de mídia e validade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-pessoa-juridica', label: 'Certificado Digital Pessoa Jurídica', description: 'Todas as opções de e-CNPJ, com preços e mídias.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Para o sócio, o autônomo e o profissional liberal.' },
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado exclusivamente no computador, validade de 1 ano.' },
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'O único que funciona pelo celular, via aplicativo Bird ID.' },
+        { href: '/renovacao-certificado-digital', label: 'Renovação de Certificado', description: 'Renove o e-CNPJ antes de vencer e não pare a emissão de notas.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Emita o e-CNPJ da sua empresa hoje"
+      description={`Fale com um agente de registro da AllCert pelo WhatsApp ou pelos telefones ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}. Conferimos os documentos e emitimos no mesmo dia.`}
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

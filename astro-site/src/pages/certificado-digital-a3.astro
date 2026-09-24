@@ -1,0 +1,311 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/certificado-digital-a3';
+
+const title = 'Certificado Digital A3 | Token USB e Cartão — AllCert';
+const description =
+  'Certificado digital A3 ICP-Brasil a partir de R$ 150,00: token USB, cartão com chip ou kit com leitora, validade de até 3 anos. Emissão por videoconferência ou no Centro de BH.';
+
+const destaques = getProductsByIds([
+  'ecpf-a3-token',
+  'ecpf-a3-cartao',
+  'ecpf-a3-leitora',
+  'ecpf-a3-somente',
+]);
+
+const destaquesPj = getProductsByIds(['ecnpj-a3-token', 'ecnpj-a3-cartao', 'ecnpj-a3-leitora', 'ecnpj-a3-somente']);
+
+const vantagens = [
+  {
+    title: 'A chave privada nunca sai da mídia',
+    text: 'No A3, a chave é gerada dentro do chip e não pode ser copiada. Quem não tem o token ou o cartão em mãos, simplesmente não assina no seu nome.',
+  },
+  {
+    title: 'Validade de até 3 anos',
+    text: 'Enquanto o A1 vence todo ano, o A3 pode valer 1, 2 ou 3 anos. Menos renovações, custo anual menor e menos risco de ser pego por um vencimento no meio de um prazo.',
+  },
+  {
+    title: 'Funciona em qualquer computador',
+    text: 'O certificado viaja com você. Basta conectar o token USB (ou o cartão na leitora) em uma máquina com os drivers instalados e digitar o PIN.',
+  },
+  {
+    title: 'Formatou o computador? Nada se perde',
+    text: 'Como o certificado está na mídia, formatação, troca de notebook ou defeito no HD não afetam nada. Você reinstala os drivers e continua assinando.',
+  },
+  {
+    title: 'Aceito em PJe, e-SAJ e portais de tribunais',
+    text: 'É a mídia tradicional do peticionamento eletrônico e a preferida de advogados que usam a carteira da OAB com chip como suporte do certificado.',
+  },
+  {
+    title: 'Reaproveita token e cartão que você já tem',
+    text: 'Se a mídia ainda está boa e é compatível, você paga apenas o certificado — a partir de R$ 150,00 no e-CPF e R$ 210,00 no e-CNPJ.',
+  },
+];
+
+const midias = [
+  {
+    title: 'Token USB',
+    text: 'Um pendrive criptográfico. Conecta direto na porta USB, não precisa de leitora e é a mídia mais prática para quem circula entre computadores. É a opção mais vendida do A3.',
+  },
+  {
+    title: 'Cartão com chip (smartcard)',
+    text: 'Formato de cartão de banco, com o certificado gravado no chip. Exige uma <strong>leitora USB</strong> para funcionar. Comum em empresas que já têm leitoras no setor fiscal.',
+  },
+  {
+    title: 'Kit cartão + leitora',
+    text: 'Para quem quer o formato cartão e ainda não tem leitora. Vem tudo pronto para usar: você conecta a leitora, insere o cartão e digita o PIN.',
+  },
+  {
+    title: 'Somente certificado',
+    text: 'Você já tem token ou cartão compatível de uma emissão anterior. Gravamos o novo certificado na mídia existente e o preço cai bastante.',
+  },
+  {
+    title: 'Carteira da OAB e de conselhos',
+    text: 'Advogados, médicos e contadores podem usar a carteira com chip do conselho como mídia. Veja as condições na página de <a href="/certificado-digital-oab">certificado OAB</a>.',
+  },
+  {
+    title: 'Não sabe qual mídia tem?',
+    text: 'Mande uma foto do seu token ou cartão pelo WhatsApp. Em minutos confirmamos se ele é compatível com a gravação de um novo certificado.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha a mídia e a validade',
+    text: 'Token USB, cartão com chip, kit com leitora ou gravação na mídia que você já tem. Validade de <strong>1, 2 ou 3 anos</strong>.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Conferimos tudo antes de agendar a validação. Documento vencido ou contrato social desatualizado é a causa número um de reprovação.',
+  },
+  {
+    title: 'Faça a validação de identidade',
+    text: 'Por videoconferência, de 10 a 20 minutos, ou presencialmente no escritório do Centro de Belo Horizonte, de segunda a sexta, das 9h às 18h.',
+  },
+  {
+    title: 'Grave o certificado na mídia',
+    text: 'Instalamos os drivers com você, gravamos o certificado no token ou cartão e testamos o primeiro acesso ao e-CAC, ao PJe ou ao emissor de notas.',
+  },
+];
+
+const faq = [
+  {
+    q: 'O que é o certificado digital A3?',
+    a: 'O A3 é o certificado digital ICP-Brasil gravado em uma mídia criptográfica — token USB ou cartão com chip. A chave privada é gerada dentro do dispositivo e nunca sai dele: para assinar, a mídia precisa estar conectada ao computador e o PIN precisa ser digitado. A validade vai de 1 a 3 anos.',
+  },
+  {
+    q: 'Qual a diferença entre A3 e A1?',
+    a: 'O A3 fica gravado em token ou cartão, vale até 3 anos e exige a mídia conectada a cada uso. O A1 é um arquivo instalado no computador, vale 1 ano e dispensa mídia — o que o torna a escolha natural de quem assina notas em lote por um emissor ou ERP. A validade jurídica é idêntica nos dois casos.',
+  },
+  {
+    q: 'O certificado A3 funciona no celular?',
+    a: 'Não. Smartphones não têm porta para token USB nem leitora de cartão compatível com a cadeia ICP-Brasil. Para assinar pelo celular, a modalidade é o certificado em nuvem (Bird ID), em que a chave fica em hardware criptográfico certificado e a assinatura é autorizada pelo aplicativo.',
+  },
+  {
+    q: 'Posso usar o token que já tenho?',
+    a: 'Na maioria dos casos, sim. Tokens e cartões homologados pela ICP-Brasil com espaço livre aceitam a gravação de um novo certificado. Mande uma foto do dispositivo pelo WhatsApp que confirmamos a compatibilidade antes de você comprar. A opção "somente certificado" custa a partir de R$ 150,00 no e-CPF.',
+  },
+  {
+    q: 'Esqueci o PIN do token. O que acontece?',
+    a: 'O PIN pode ser desbloqueado com o código PUK, definido na emissão. Se o PUK também estiver perdido ou se o número de tentativas erradas esgotar, a mídia é bloqueada definitivamente e o certificado precisa ser emitido de novo em uma mídia nova. Anote PIN e PUK em local seguro na hora da emissão.',
+  },
+  {
+    q: 'Quanto custa o certificado A3 na AllCert?',
+    a: 'No e-CPF, a gravação em mídia própria começa em R$ 150,00 (1 ano), o cartão com chip em R$ 180,00 e o kit com token USB em R$ 240,00. No e-CNPJ, os valores partem de R$ 210,00 para gravação em mídia própria e R$ 280,00 no kit com token. Advogados, médicos e contadores têm condição especial na página de certificado OAB.',
+  },
+  {
+    q: 'O A3 precisa de drivers?',
+    a: 'Sim. Cada fabricante de token ou cartão tem um gerenciador próprio (SafeSign, SafeNet, Watchdata, entre outros) que precisa ser instalado no computador, junto com a cadeia de certificados da Autoridade Certificadora. Fazemos essa instalação com você no atendimento.',
+  },
+  {
+    q: 'Quanto tempo leva para emitir o A3?',
+    a: 'A validação leva de 10 a 20 minutos e a emissão sai no mesmo dia, desde que a mídia esteja em mãos para a gravação. Se o token ou o cartão for comprado conosco, combinamos a retirada no Centro de BH ou o envio antes de agendar a gravação.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital A3',
+    description,
+    serviceType: 'Certificado Digital A3 ICP-Brasil',
+    path,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado A3', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Certificado em token ou cartão"
+      title="Certificado Digital A3: até 3 anos de validade, na sua mão"
+      description="A chave privada fica dentro do token USB ou do cartão com chip e nunca sai de lá. Leve o certificado para qualquer computador, sem depender da máquina onde foi instalado."
+      bullets={[
+        'e-CPF A3 a partir de <strong>R$ 150,00</strong> e e-CNPJ A3 a partir de <strong>R$ 210,00</strong>',
+        'Validade de 1, 2 ou 3 anos — menos renovações',
+        'Token USB, cartão com chip ou kit completo com leitora',
+        'Já tem token compatível? Gravamos o novo certificado nele',
+      ]}
+      image="/images/produtos/pendrive.png"
+      imageAlt="Token USB com certificado digital A3 ICP-Brasil"
+      ctaText="Emitir meu certificado A3"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Por que escolher o A3"
+      title="Segurança de hardware e validade longa"
+      intro="O A3 é a escolha de quem quer controle físico do certificado e não quer renovar todo ano."
+      items={vantagens}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Preços AllCert</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          e-CPF A3: token, cartão, kit com leitora ou só o certificado
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preço de Autoridade de Registro, sem taxa de intermediação. Prefere não usar mídia física?
+          Veja o <a class="font-semibold text-primary hover:underline" href="/certificado-digital-a1">certificado A1</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+
+        <h2 class="mt-16 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          e-CNPJ A3: o certificado da empresa em mídia criptográfica
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Para o sócio ou representante legal que assina pela empresa de mais de um computador. Veja
+          também a página completa do <a class="font-semibold text-primary hover:underline" href="/e-cnpj">e-CNPJ</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaquesPj.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Mídias disponíveis"
+      title="Token, cartão ou kit: qual faz sentido para você"
+      intro="Todas as mídias entregam o mesmo certificado ICP-Brasil. O que muda é o formato e o que você já tem em casa ou no escritório."
+      items={midias}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos até o A3 gravado"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Quando o A3 compensa de verdade
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            Do ponto de vista jurídico, A1 e A3 são a mesma coisa: certificados ICP-Brasil com
+            assinatura equiparada à de próprio punho pela MP 2.200-2/2001. A escolha é operacional e
+            se resume a três perguntas.
+          </p>
+
+          <h3>Quantas máquinas diferentes você usa?</h3>
+          <p>
+            Advogado que peticiona do escritório e de casa, contador que atende clientes no
+            endereço deles, sócio que alterna entre desktop e notebook: para todos eles, o token no
+            bolso resolve o que o <a href="/certificado-digital-a1">A1</a> só resolve instalando
+            cópias em várias máquinas — e cada cópia é mais uma responsabilidade de guarda.
+          </p>
+
+          <h3>Quanto vale não renovar todo ano?</h3>
+          <p>
+            Um e-CPF A3 de 3 anos em token custa R$ 310,00, ou cerca de R$ 103,00 por ano — abaixo
+            do preço anual do A1, com a mídia inclusa. Some a isso o tempo que você não gasta
+            refazendo validação de identidade a cada 12 meses. Para quem tem rotina estável, o A3
+            longo costuma sair na frente na conta final.
+          </p>
+
+          <h3>Quem mais tem acesso ao seu computador?</h3>
+          <p>
+            Essa é a pergunta de segurança. O A3 obriga posse física da mídia mais o PIN. É a razão
+            pela qual departamentos fiscais, escritórios com estagiários e empresas com equipe
+            rotativa preferem o token: o controle de quem assina vira um controle de quem tem o
+            dispositivo na gaveta.
+          </p>
+
+          <h3>E se você também precisa do celular?</h3>
+          <p>
+            O A3 não funciona em smartphone — não existe porta USB nem leitora compatível. Quem
+            precisa assinar fora do computador combina o A3 com um
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem</a>, ou migra de vez para
+            a nuvem se a rotina for majoritariamente móvel.
+          </p>
+
+          <p>
+            A comparação completa, com tabela de custo por ano e os erros mais comuns de cada
+            modalidade, está em
+            <a href="/blog/certificado-digital-a1-ou-a3-qual-escolher"> A1 ou A3: qual escolher</a>.
+            Se o seu A3 atual está perto do vencimento, veja a
+            <a href="/renovacao-certificado-digital"> renovação de certificado digital</a> — em
+            muitos casos dá para gravar o novo certificado na mesma mídia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado no computador, validade de 1 ano, sem mídia.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'O único que funciona pelo celular, via aplicativo Bird ID.' },
+        { href: '/certificado-digital-oab', label: 'Certificado OAB', description: 'Condição especial para advogados, médicos e contadores.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e licitações em nome da empresa.' },
+        { href: '/renovacao-certificado-digital', label: 'Renovação de Certificado', description: 'Grave o novo certificado na mídia que você já tem.' },
+        { href: '/certificado-digital-centro-bh', label: 'Atendimento no Centro de BH', description: 'R. São Paulo, 1071 - Sl 809, a poucos metros da Praça Sete.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Emita seu certificado A3 hoje"
+      description={`Fale com um agente de registro da AllCert pelo WhatsApp ou pelos telefones ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}. Mande uma foto do seu token: confirmamos a compatibilidade antes da compra.`}
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib/format';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  /** Card horizontal e maior, usado no primeiro post da listagem. */
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { data } = post;
+const href = `/blog/${post.id}`;
+---
+
+<article
+  class={`group flex overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-purple-950/5 ${
+    featured ? 'flex-col md:flex-row' : 'flex-col'
+  }`}
+>
+  <a
+    href={href}
+    class={`block shrink-0 overflow-hidden bg-neutral ${featured ? 'md:w-5/12' : ''}`}
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <img
+      src={data.image}
+      alt=""
+      loading="lazy"
+      width="720"
+      height="420"
+      class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+        featured ? 'h-56 md:h-full' : 'h-44'
+      }`}
+    />
+  </a>
+
+  <div class="flex flex-1 flex-col p-6">
+    <div class="flex flex-wrap items-center gap-2 text-xs">
+      <span class="rounded-md bg-primary-soft px-2 py-0.5 font-bold uppercase tracking-wider text-primary">
+        {data.category}
+      </span>
+      <time datetime={data.pubDate.toISOString()} class="text-ink-soft/80">
+        {formatDate(data.pubDate)}
+      </time>
+    </div>
+
+    <h3
+      class={`mt-3 font-bold leading-snug text-ink transition-colors group-hover:text-primary ${
+        featured ? 'text-xl md:text-2xl' : 'text-lg'
+      }`}
+    >
+      <a href={href}>{data.cardTitle ?? data.title}</a>
+    </h3>
+
+    <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
+      {data.description}
+    </p>
+
+    <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+      Ler artigo completo
+      <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </span>
+  </div>
+</article>

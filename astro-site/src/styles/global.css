@@ -33,3 +33,141 @@ body {
   background: var(--color-primary);
   color: #ffffff;
 }
+
+/* ------------------------------------------------------------------ */
+/* Tipografia de artigos do Blog (.prose-allcert)                      */
+/* Sem plugin de typography: regras próprias sobre os tokens oficiais. */
+/* ------------------------------------------------------------------ */
+.prose-allcert {
+  color: var(--color-ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.prose-allcert > * + * {
+  margin-top: 1.25rem;
+}
+
+.prose-allcert h2 {
+  margin-top: 3rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  scroll-margin-top: 6rem;
+}
+
+.prose-allcert h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+  scroll-margin-top: 6rem;
+}
+
+.prose-allcert h4 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.prose-allcert a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-allcert a:hover {
+  color: var(--color-primary-hover);
+}
+
+.prose-allcert strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.prose-allcert ul,
+.prose-allcert ol {
+  padding-left: 1.5rem;
+}
+
+.prose-allcert ul {
+  list-style: disc;
+}
+
+.prose-allcert ol {
+  list-style: decimal;
+}
+
+.prose-allcert li + li {
+  margin-top: 0.5rem;
+}
+
+.prose-allcert li::marker {
+  color: var(--color-primary);
+}
+
+.prose-allcert blockquote {
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1rem 1.25rem;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.prose-allcert blockquote > * + * {
+  margin-top: 0.75rem;
+}
+
+.prose-allcert table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+.prose-allcert thead {
+  background: var(--color-neutral);
+}
+
+.prose-allcert th,
+.prose-allcert td {
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose-allcert th {
+  color: var(--color-ink);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.prose-allcert code {
+  background: var(--color-neutral);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.9em;
+  color: var(--color-ink);
+}
+
+.prose-allcert hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: 2.5rem;
+}
+
+.prose-allcert img {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}

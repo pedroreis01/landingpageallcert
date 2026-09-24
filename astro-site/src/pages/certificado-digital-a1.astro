@@ -1,0 +1,293 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/certificado-digital-a1';
+
+const title = 'Certificado Digital A1 | Arquivo no Computador — AllCert';
+const description =
+  'Certificado digital A1 ICP-Brasil a partir de R$ 120,00: arquivo instalado no computador, validade de 1 ano, sem token nem leitora. Emissão por videoconferência no mesmo dia.';
+
+const destaques = getProductsByIds(['ecpf-a1', 'ecnpj-a1']);
+
+const vantagens = [
+  {
+    title: 'Não depende de token nem leitora',
+    text: 'O A1 é um arquivo digital instalado no computador. Nada para conectar, nada para esquecer na gaveta e nenhum driver de mídia para dar problema depois de uma atualização do Windows.',
+  },
+  {
+    title: 'Ideal para emissor de NF-e e ERP',
+    text: 'Sistemas que assinam notas em lote precisam do certificado disponível o tempo todo. Com o A1 instalado, o emissor assina sozinho, sem ninguém digitar PIN a cada documento.',
+  },
+  {
+    title: 'Pode ser instalado em mais de um computador',
+    text: 'Por ser arquivo, o A1 pode ser importado em outras máquinas sob responsabilidade do titular, usando a senha de importação definida na emissão.',
+  },
+  {
+    title: 'Menor investimento inicial',
+    text: 'Você paga apenas o certificado: não há custo de token USB, cartão com chip ou leitora. É a porta de entrada mais barata da ICP-Brasil.',
+  },
+  {
+    title: 'Emissão e instalação no mesmo dia',
+    text: 'Depois da validação por videoconferência, o download e a instalação levam poucos minutos. Você já sai assinando e acessando o e-CAC.',
+  },
+  {
+    title: 'Mesma validade jurídica do A3',
+    text: 'A1 e A3 são igualmente válidos perante a MP 2.200-2/2001. O que muda é onde a chave privada fica guardada, não o valor jurídico da assinatura.',
+  },
+];
+
+const limitacoes = [
+  {
+    title: 'Validade de 1 ano',
+    text: 'O A1 é sempre anual. Quem prefere renovar a cada 2 ou 3 anos deve olhar o <a href="/certificado-digital-a3">certificado A3</a>, gravado em token ou cartão.',
+  },
+  {
+    title: 'Não funciona em celular',
+    text: 'O A1 vive dentro do repositório de certificados do computador. Para assinar pelo smartphone, a modalidade correta é o <a href="/certificado-digital-em-nuvem">certificado em nuvem</a>.',
+  },
+  {
+    title: 'Formatou sem backup, perdeu o certificado',
+    text: 'Não existe segunda via de A1. Se a máquina for formatada, trocada ou roubada sem que você tenha exportado o arquivo, é preciso emitir um novo certificado.',
+  },
+  {
+    title: 'A senha de importação é só sua',
+    text: 'Nem a AllCert nem a Autoridade Certificadora guardam essa senha. Perdeu a senha do arquivo .pfx, o arquivo vira inútil.',
+  },
+  {
+    title: 'Fica na máquina onde foi instalado',
+    text: 'Quem assina de computadores diferentes o tempo todo tende a se dar melhor com o A3 em token, que viaja no bolso.',
+  },
+  {
+    title: 'Exige cuidado com acesso compartilhado',
+    text: 'Um A1 instalado em computador usado por várias pessoas é um certificado que várias pessoas podem usar. Avalie certificados individuais com procuração no e-CAC.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha e-CPF ou e-CNPJ',
+    text: 'O A1 existe nas duas modalidades: <strong>e-CPF A1</strong> para a pessoa física e <strong>e-CNPJ A1</strong> para a empresa. Em dúvida, o agente de registro resolve em 2 minutos.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Conferimos tudo <strong>antes</strong> de agendar a validação. Documento vencido ou contrato social desatualizado é a causa número um de reprovação.',
+  },
+  {
+    title: 'Faça a validação de identidade',
+    text: 'Por videoconferência, de 10 a 20 minutos, ou presencialmente no escritório do Centro de Belo Horizonte, de segunda a sexta, das 9h às 18h.',
+  },
+  {
+    title: 'Instale e faça backup',
+    text: 'Você define a senha de importação, baixa o arquivo e instala. Acompanhamos a instalação e lembramos do backup — o passo que a maioria esquece.',
+  },
+];
+
+const faq = [
+  {
+    q: 'O que é o certificado digital A1?',
+    a: 'O A1 é o certificado digital ICP-Brasil em formato de arquivo (.pfx ou .p12), instalado diretamente no computador. Ele tem validade de 1 ano e a mesma validade jurídica do A3, garantida pela MP 2.200-2/2001. A diferença está na guarda da chave privada: no A1 ela fica protegida por senha dentro da máquina; no A3, dentro de um token ou cartão com chip.',
+  },
+  {
+    q: 'Qual a diferença entre certificado A1 e A3?',
+    a: 'O A1 é um arquivo instalado no computador, vale 1 ano e não exige mídia nem driver. O A3 é gravado em token USB ou cartão com chip, vale de 1 a 3 anos e exige que a mídia esteja conectada e o PIN digitado a cada assinatura. O A1 é melhor para automação (emissor de NF-e, ERP, robô fiscal); o A3 é melhor para quem assina de máquinas diferentes ou quer controle físico do certificado.',
+  },
+  {
+    q: 'O certificado A1 funciona no celular?',
+    a: 'Não. O A1 é instalado exclusivamente no computador, no repositório de certificados do sistema operacional ou do navegador. Para assinar pelo celular, a modalidade correta é o certificado em nuvem (Bird ID), em que a chave fica em hardware criptográfico certificado e cada assinatura é autorizada pelo aplicativo.',
+  },
+  {
+    q: 'Posso instalar o A1 em mais de um computador?',
+    a: 'Sim. Como é um arquivo, o A1 pode ser importado em quantos computadores o titular precisar, desde que ele guarde o arquivo e a senha de importação. A responsabilidade pelo uso continua sendo inteiramente do titular do certificado.',
+  },
+  {
+    q: 'Perdi o computador com o A1 instalado. E agora?',
+    a: 'Se você tem o arquivo exportado e a senha de importação, basta instalar em outra máquina. Se não tem backup, não existe segunda via: é preciso emitir um novo certificado. Em caso de roubo ou suspeita de uso indevido, solicite a revogação imediatamente — é o único mecanismo que invalida assinaturas futuras.',
+  },
+  {
+    q: 'Quanto custa o certificado A1 na AllCert?',
+    a: 'O e-CPF A1 (1 ano) custa R$ 120,00 e o e-CNPJ A1 (1 ano) custa R$ 200,00. Os dois saem com nota fiscal, suporte na instalação e acompanhamento no primeiro acesso ao e-CAC ou ao emissor de notas.',
+  },
+  {
+    q: 'Em quais sistemas o A1 funciona?',
+    a: 'Windows, macOS e Linux, além dos principais emissores de NF-e, ERPs e sistemas contábeis. No Windows ele é instalado no repositório do sistema e fica disponível para Internet Explorer, Edge e Chrome; no macOS, vai para o Keychain; no Firefox, a importação é feita dentro do próprio navegador.',
+  },
+  {
+    q: 'Quanto tempo leva para emitir o A1?',
+    a: 'Com a documentação conferida antes, a validação por videoconferência leva de 10 a 20 minutos e o certificado é emitido, baixado e instalado no mesmo dia.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital A1',
+    description,
+    serviceType: 'Certificado Digital A1 ICP-Brasil',
+    path,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado A1', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Certificado em arquivo digital"
+      title="Certificado Digital A1: instalado no computador, pronto para assinar"
+      description="Sem token, sem cartão, sem leitora. O A1 é o arquivo que fica no seu computador e assina notas fiscais, declarações e contratos com validade jurídica ICP-Brasil."
+      bullets={[
+        'e-CPF A1 por <strong>R$ 120,00</strong> e e-CNPJ A1 por <strong>R$ 200,00</strong>',
+        'Validade de 1 ano, sem custo de mídia física',
+        'Perfeito para emissor de NF-e, ERP e sistema contábil',
+        'Emissão por videoconferência e instalação assistida no mesmo dia',
+      ]}
+      image="/images/produtos/computador.png"
+      imageAlt="Certificado digital A1 instalado no computador"
+      ctaText="Emitir meu certificado A1"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Por que escolher o A1"
+      title="As vantagens de ter o certificado dentro do computador"
+      intro="O A1 é a modalidade mais escolhida por quem emite nota fiscal em volume e por quem não quer depender de mídia conectada."
+      items={vantagens}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Preços AllCert</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Certificado A1 para pessoa física e para empresa
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preço de Autoridade de Registro, sem taxa de intermediação. Precisa de validade maior que
+          1 ano? Veja o <a class="font-semibold text-primary hover:underline" href="/certificado-digital-a3">certificado A3</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Antes de decidir"
+      title="O que o A1 não faz — e como contornar"
+      intro="Nenhuma modalidade serve para tudo. Estes são os pontos que costumam surpreender quem emite o A1 pela primeira vez."
+      items={limitacoes}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos até o A1 instalado"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Quando o A1 é a escolha certa
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            A pergunta que chega ao nosso atendimento quase todo dia é sempre a mesma: “A1 ou A3?”.
+            A resposta depende menos de preço e mais de <strong>como você usa o certificado na
+            rotina</strong>. Vale separar três cenários.
+          </p>
+
+          <h3>Você emite nota fiscal por sistema</h3>
+          <p>
+            Se um emissor de NF-e, um ERP ou o sistema da contabilidade assina documentos em lote, o
+            A1 é praticamente obrigatório. O sistema precisa do certificado disponível o tempo todo
+            e não existe ninguém para digitar o PIN de um token a cada nota. É por isso que o
+            <a href="/e-cnpj"> e-CNPJ A1</a> é o produto mais vendido para empresas que faturam
+            todo dia.
+          </p>
+
+          <h3>Você assina de computadores diferentes</h3>
+          <p>
+            Aqui o A3 leva vantagem. O <a href="/certificado-digital-a3">token USB</a> vai no bolso
+            e funciona em qualquer máquina com os drivers instalados. Também é a opção de quem quer
+            controle físico: sem a mídia em mãos, ninguém assina no seu nome. O A1 até pode ser
+            instalado em várias máquinas, mas cada cópia é uma responsabilidade a mais para
+            controlar.
+          </p>
+
+          <h3>Você precisa assinar pelo celular</h3>
+          <p>
+            Nem A1 nem A3 resolvem. A única modalidade pensada para o smartphone é o
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem (Bird ID)</a>. É comum a
+            combinação: A1 instalado no computador da contabilidade para as notas e um certificado
+            em nuvem no celular do sócio para aprovações urgentes.
+          </p>
+
+          <h3>O backup que ninguém faz — e depois faz falta</h3>
+          <p>
+            Vale repetir: <strong>não existe segunda via de A1</strong>. Logo depois de instalar,
+            exporte o arquivo com a senha e guarde em dois lugares distintos (um pendrive e um
+            serviço de nuvem particular, por exemplo). Formatação de máquina sem backup é o motivo
+            número um de gente comprando certificado duas vezes no mesmo ano.
+          </p>
+
+          <p>
+            O passo a passo completo da instalação, com as telas do Windows e do macOS, está no
+            artigo <a href="/blog/como-instalar-certificado-digital-a1-windows-mac">como instalar o
+            certificado digital A1 no Windows e no Mac</a>. Para a comparação detalhada entre as
+            modalidades, leia <a href="/blog/certificado-digital-a1-ou-a3-qual-escolher">A1 ou A3:
+            qual escolher</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'O único que funciona pelo celular, via aplicativo Bird ID.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Para o autônomo, o profissional liberal e a pessoa física.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e licitações em nome da empresa.' },
+        { href: '/renovacao-certificado-digital', label: 'Renovação de Certificado', description: 'O A1 vence em 1 ano: renove antes de parar a operação.' },
+        { href: '/certificado-digital-belo-horizonte', label: 'Certificado Digital em BH', description: 'Atendimento presencial no Centro de Belo Horizonte.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Emita seu certificado A1 hoje"
+      description={`Fale com um agente de registro da AllCert pelo WhatsApp ou pelos telefones ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}. Conferimos os documentos, emitimos e instalamos no mesmo dia.`}
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

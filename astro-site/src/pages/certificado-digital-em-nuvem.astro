@@ -1,0 +1,299 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/certificado-digital-em-nuvem';
+
+const title = 'Certificado Digital em Nuvem (Bird ID) | Assine pelo Celular — AllCert';
+const description =
+  'Certificado digital em nuvem Bird ID a partir de R$ 50,00: assine pelo celular, sem token, sem cartão e sem instalar nada. ICP-Brasil, emissão por videoconferência no mesmo dia.';
+
+const destaques = getProductsByIds(['ecpf-a3-nuvem']);
+
+const vantagens = [
+  {
+    title: 'O único que funciona no celular',
+    text: 'Nem o A1 nem o A3 assinam pelo smartphone. Na nuvem, a assinatura é liberada pelo aplicativo Bird ID, de onde você estiver, com o celular que já está no seu bolso.',
+  },
+  {
+    title: 'Nada para perder, quebrar ou esquecer',
+    text: 'Sem token para deixar na gaveta, sem cartão para quebrar, sem leitora para comprar. A chave fica em hardware criptográfico certificado, no datacenter da Autoridade Certificadora.',
+  },
+  {
+    title: 'Funciona em qualquer computador também',
+    text: 'Pelo desktop, você autentica no navegador e autoriza a assinatura no celular. Serve em Windows, macOS, Linux e até em computador emprestado, sem instalar driver.',
+  },
+  {
+    title: 'Formatou o computador? Não muda nada',
+    text: 'O certificado não está na máquina. Trocar de notebook, formatar ou usar o computador do cliente deixa de ser um problema de certificado.',
+  },
+  {
+    title: 'Autorização por biometria ou PIN',
+    text: 'Cada assinatura precisa da sua liberação no aplicativo, com a biometria do aparelho ou o PIN. Mesmo quem tiver sua senha não assina sem o seu celular.',
+  },
+  {
+    title: 'Pacotes a partir de R$ 50,00',
+    text: 'Você escolhe o volume de transações: 5, 50 ou 5000. Quem assina pouco paga pouco; quem assina todo dia leva o pacote maior sem mudar de produto.',
+  },
+];
+
+const usos = [
+  {
+    title: 'Assinar contratos e PDFs',
+    text: 'Contratos, propostas, recibos, autorizações e declarações com validade jurídica pela MP 2.200-2/2001, direto do celular, em minutos.',
+  },
+  {
+    title: 'Gov.br nível ouro',
+    text: 'Vincular o certificado ICP-Brasil eleva a conta Gov.br ao nível ouro, liberando serviços que exigem o grau máximo de confiabilidade.',
+  },
+  {
+    title: 'e-CAC e Receita Federal',
+    text: 'Acessar o Centro Virtual de Atendimento, consultar a situação fiscal, emitir certidões e assinar procurações eletrônicas para o contador.',
+  },
+  {
+    title: 'Declaração de Imposto de Renda',
+    text: 'Transmitir retificadoras, acessar a declaração pré-preenchida e consultar anos anteriores sem depender do computador de casa.',
+  },
+  {
+    title: 'Sistemas do dia a dia profissional',
+    text: 'Portais de tribunais, prontuário eletrônico, assinatura de laudos e sistemas que aceitam autenticação por certificado em nuvem.',
+  },
+  {
+    title: 'Aprovações urgentes fora do escritório',
+    text: 'Sócio viajando que precisa assinar um contrato hoje: é o cenário em que a nuvem resolve o que a mídia física não resolve.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha o pacote de transações',
+    text: '5, 50 ou 5000 assinaturas, a partir de <strong>R$ 50,00</strong>. Se errar para menos, dá para ampliar depois sem emitir outro certificado.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Documento de identidade original com foto e assinatura, CPF e comprovante de endereço. Conferimos tudo antes de agendar a validação.',
+  },
+  {
+    title: 'Faça a validação por videoconferência',
+    text: 'De 10 a 20 minutos com um agente de registro da AllCert. Também dá para fazer presencialmente no Centro de Belo Horizonte.',
+  },
+  {
+    title: 'Ative o aplicativo e comece a assinar',
+    text: 'Instale o Bird ID, ative com o QR Code, cadastre a biometria e pronto: o certificado já está no celular, sem baixar arquivo nenhum.',
+  },
+];
+
+const faq = [
+  {
+    q: 'O que é o certificado digital em nuvem?',
+    a: 'É o certificado digital ICP-Brasil em que a chave privada fica armazenada em um módulo criptográfico de hardware (HSM) certificado, no ambiente da Autoridade Certificadora, em vez de ficar no seu computador ou em um token. Você acessa o certificado por aplicativo, autorizando cada assinatura. Na AllCert, a solução é o Bird ID.',
+  },
+  {
+    q: 'O certificado em nuvem tem a mesma validade jurídica do A1 e do A3?',
+    a: 'Sim. É um certificado ICP-Brasil como qualquer outro, com validade jurídica garantida pela MP 2.200-2/2001. A diferença está apenas em onde a chave privada é guardada e em como a assinatura é autorizada.',
+  },
+  {
+    q: 'É seguro deixar o certificado na nuvem?',
+    a: 'A chave fica em HSM homologado pela ICP-Brasil, com auditoria e controles físicos muito superiores aos de um computador comum ou de um token que pode ser perdido. E ela não assina nada sozinha: cada operação depende da sua autorização no aplicativo, com biometria ou PIN. Na prática, a nuvem soma duas barreiras (o que você sabe e o aparelho que você tem).',
+  },
+  {
+    q: 'Preciso de internet para assinar?',
+    a: 'Sim. Como a chave está no servidor da Autoridade Certificadora, a autorização e a assinatura acontecem online. É a principal diferença em relação ao A1 e ao A3, que assinam sem conexão.',
+  },
+  {
+    q: 'O que são as transações do Bird ID?',
+    a: 'Cada assinatura ou autenticação consome uma transação do pacote contratado. Os pacotes da AllCert são de 5 transações (R$ 50,00), 50 transações (R$ 100,00) e 5000 transações (R$ 150,00). Quem assina poucos documentos por ano fica bem no pacote pequeno; quem usa o certificado para acessar sistemas todo dia deve ir direto no maior.',
+  },
+  {
+    q: 'E se eu perder o celular?',
+    a: 'O certificado não está no aparelho — está no HSM. Você reinstala o aplicativo em um novo celular e reativa o acesso com suas credenciais. Se houver suspeita de uso indevido, solicite a revogação imediatamente pelos nossos telefones.',
+  },
+  {
+    q: 'Existe e-CNPJ em nuvem?',
+    a: 'Sim, a modalidade em nuvem também existe para pessoa jurídica. Fale com a AllCert pelo WhatsApp com o CNPJ em mãos que montamos a proposta com o pacote de transações adequado ao volume da empresa.',
+  },
+  {
+    q: 'Dá para emitir NF-e com certificado em nuvem?',
+    a: 'Depende do emissor. Sistemas que já suportam a API do certificado em nuvem funcionam bem; emissores mais antigos esperam encontrar o certificado instalado na máquina e, nesses casos, o A1 continua sendo a escolha certa. Confirme com o seu software antes de decidir.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital em Nuvem (Bird ID)',
+    description,
+    serviceType: 'Certificado Digital em Nuvem ICP-Brasil',
+    path,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado em Nuvem', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Certificado no celular"
+      title="Certificado Digital em Nuvem: assine pelo celular, sem token"
+      description="O Bird ID guarda a sua chave em hardware criptográfico certificado e libera cada assinatura pelo aplicativo. É a única modalidade ICP-Brasil que funciona no smartphone."
+      bullets={[
+        'Pacotes a partir de <strong>R$ 50,00</strong>, com nota fiscal',
+        'Sem token, sem cartão, sem leitora e sem instalar driver',
+        'Funciona no celular e em qualquer computador com internet',
+        'Cada assinatura autorizada por biometria ou PIN no aplicativo',
+      ]}
+      image="/images/produtos/bird.png"
+      imageAlt="Certificado digital em nuvem Bird ID no celular"
+      ctaText="Emitir meu certificado em nuvem"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Por que escolher a nuvem"
+      title="Mobilidade sem abrir mão da segurança"
+      intro="A nuvem resolve o problema de quem precisa assinar fora do computador — e elimina o risco de perder a mídia física."
+      items={vantagens}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Preços AllCert</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Bird ID: escolha o pacote pelo volume de assinaturas
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preço de Autoridade de Registro, sem taxa de intermediação. Precisa do certificado para um
+          emissor de notas? Veja o <a class="font-semibold text-primary hover:underline" href="/certificado-digital-a1">certificado A1</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Para que serve"
+      title="O que você resolve com o certificado em nuvem"
+      items={usos}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos até assinar pelo celular"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Nuvem, A1 ou A3: como decidir sem errar
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            As três modalidades entregam certificados ICP-Brasil com a mesma validade jurídica. A
+            diferença é <strong>onde mora a chave privada</strong> — e isso muda completamente a
+            rotina de uso.
+          </p>
+
+          <h3>Onde fica a chave em cada modalidade</h3>
+          <ul>
+            <li>
+              <strong>A1:</strong> arquivo protegido por senha, dentro do computador. Assina offline,
+              vale 1 ano, não funciona no celular.
+            </li>
+            <li>
+              <strong>A3:</strong> dentro de um token USB ou cartão com chip. Assina offline, vale até
+              3 anos, também não funciona no celular.
+            </li>
+            <li>
+              <strong>Nuvem:</strong> em HSM certificado, no datacenter da AC. Precisa de internet,
+              funciona no celular e em qualquer computador.
+            </li>
+          </ul>
+
+          <h3>Quem se dá bem com a nuvem</h3>
+          <p>
+            Advogados que peticionam do fórum, médicos que assinam laudo entre plantões,
+            representantes comerciais na rua, sócios que viajam, autônomos que não querem instalar
+            nada: todo mundo cuja assinatura acontece longe de uma mesa fixa. Também é a melhor
+            porta de entrada para quem vai usar o certificado poucas vezes ao ano e não quer gastar
+            com mídia.
+          </p>
+
+          <h3>Quem ainda deve ficar no A1</h3>
+          <p>
+            Empresas que emitem nota fiscal em volume por um emissor ou ERP. Boa parte desses
+            sistemas espera encontrar o certificado instalado na máquina e assina sozinha, sem
+            ninguém para autorizar no celular. Nesses casos o <a href="/e-cnpj">e-CNPJ A1</a>
+            continua sendo o caminho — e nada impede ter os dois: o A1 na contabilidade e a nuvem no
+            bolso do sócio.
+          </p>
+
+          <h3>Quanto custa por ano</h3>
+          <p>
+            O pacote de 5000 transações sai por R$ 150,00, abaixo do <a href="/certificado-digital-a3">A3 em
+            token</a> de 1 ano e sem custo de mídia. Para quem assina em volume, a nuvem tende a ser
+            a opção mais barata e a mais prática ao mesmo tempo.
+          </p>
+
+          <p>
+            Explicamos o passo a passo da ativação do aplicativo, com as telas reais, no artigo
+            <a href="/blog/certificado-digital-em-nuvem-bird-id-celular"> certificado digital em
+            nuvem: como usar o Bird ID no celular</a>. Para a comparação direta entre as mídias
+            físicas, leia <a href="/blog/certificado-digital-a1-ou-a3-qual-escolher">A1 ou A3: qual
+            escolher</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado no computador, validade de 1 ano.' },
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Para o autônomo, o profissional liberal e a pessoa física.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e licitações em nome da empresa.' },
+        { href: '/certificado-digital-oab', label: 'Certificado OAB', description: 'Condição especial para advogados, médicos e contadores.' },
+        { href: '/renovacao-certificado-digital', label: 'Renovação de Certificado', description: 'Renove antes de vencer e não pare a sua rotina.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Leve seu certificado digital no celular"
+      description={`Fale com um agente de registro da AllCert pelo WhatsApp ou pelos telefones ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}. Emitimos por videoconferência e ativamos o aplicativo com você.`}
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

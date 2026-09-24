@@ -432,3 +432,10 @@ export function getProductsByCategory(category: 'pf' | 'pj' | 'oab' | 'promocao'
 export function getFeaturedProducts(): Product[] {
   return productsList.filter(p => p.featured);
 }
+
+/** Seleciona produtos por id, preservando a ordem informada — usado nas landings de SEO. */
+export function getProductsByIds(ids: readonly string[]): Product[] {
+  return ids
+    .map((id) => productsList.find((p) => p.id === id))
+    .filter((p): p is Product => Boolean(p));
+}

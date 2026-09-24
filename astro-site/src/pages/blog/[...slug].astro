@@ -1,0 +1,233 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import NapCard from '../../components/NapCard.astro';
+import { site, solutionLinks } from '../../data/site';
+import { formatDate, readingTime } from '../../lib/format';
+import {
+  articleLd,
+  breadcrumbLd,
+  faqLd,
+  localBusinessLd,
+  organizationLd,
+} from '../../lib/schema';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content, headings } = await render(post);
+
+const allPosts = await getCollection('blog');
+
+const explicitRelated = data.related
+  .map((id) => allPosts.find((candidate) => candidate.id === id))
+  .filter((candidate): candidate is CollectionEntry<'blog'> => Boolean(candidate));
+
+const fallbackRelated = allPosts
+  .filter(
+    (candidate) =>
+      candidate.id !== post.id && !explicitRelated.some((related) => related.id === candidate.id),
+  )
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const relatedPosts = [...explicitRelated, ...fallbackRelated].slice(0, 3);
+
+const path = `/blog/${post.id}`;
+const minutes = readingTime(post.body);
+const tocHeadings = headings.filter((heading) => heading.depth === 2);
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  articleLd({
+    title: data.title,
+    description: data.description,
+    path,
+    pubDate: data.pubDate,
+    updatedDate: data.updatedDate,
+    image: data.image,
+    keywords: data.keywords,
+    section: data.category,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: data.cardTitle ?? data.title, href: path },
+  ]),
+  ...(data.faq.length > 0 ? [faqLd(data.faq)] : []),
+];
+---
+
+<Base title={`${data.title} | Blog AllCert`} description={data.description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <article>
+      <header class="border-b border-border bg-neutral py-12 md:py-16">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <nav aria-label="Você está aqui" class="text-xs text-ink-soft">
+            <a href="/" class="hover:text-primary">Início</a>
+            <span class="px-1.5 text-border">/</span>
+            <a href="/blog" class="hover:text-primary">Blog</a>
+            <span class="px-1.5 text-border">/</span>
+            <span class="font-semibold text-ink">{data.category}</span>
+          </nav>
+
+          <span class="mt-6 inline-block rounded-md bg-primary-soft px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
+            {data.category}
+          </span>
+
+          <h1 class="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
+            {data.title}
+          </h1>
+
+          <p class="mt-5 text-base leading-relaxed text-ink-soft md:text-lg">
+            {data.description}
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-soft">
+            <span class="font-semibold text-ink">{data.author}</span>
+            <span aria-hidden="true" class="text-border">•</span>
+            <time datetime={data.pubDate.toISOString()}>
+              Publicado em {formatDate(data.pubDate)}
+            </time>
+            {data.updatedDate && (
+              <>
+                <span aria-hidden="true" class="text-border">•</span>
+                <time datetime={data.updatedDate.toISOString()}>
+                  Atualizado em {formatDate(data.updatedDate)}
+                </time>
+              </>
+            )}
+            <span aria-hidden="true" class="text-border">•</span>
+            <span>{minutes} min de leitura</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="bg-white py-12 md:py-16">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <img
+            src={data.image}
+            alt={data.imageAlt}
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-border object-cover shadow-sm"
+            loading="eager"
+          />
+
+          {tocHeadings.length > 2 && (
+            <nav
+              aria-label="Neste artigo"
+              class="mt-10 rounded-2xl border border-border bg-neutral p-6"
+            >
+              <p class="text-xs font-semibold uppercase tracking-wider text-primary">
+                Neste artigo
+              </p>
+              <ol class="mt-4 space-y-2 text-sm">
+                {tocHeadings.map((heading, index) => (
+                  <li class="flex gap-3">
+                    <span class="font-semibold text-primary">{index + 1}.</span>
+                    <a href={`#${heading.slug}`} class="text-ink-soft hover:text-primary">
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
+          <div class="prose-allcert mt-10">
+            <Content />
+          </div>
+
+          {data.tags.length > 0 && (
+            <div class="mt-12 flex flex-wrap items-center gap-2 border-t border-border pt-6">
+              <span class="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+                Assuntos
+              </span>
+              {data.tags.map((tag) => (
+                <span class="rounded-full border border-border px-3 py-1 text-xs text-ink-soft">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <aside class="mt-10 rounded-2xl border border-border bg-primary-soft/60 p-6">
+            <p class="text-sm font-bold text-ink">Sobre a AllCert</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+              {site.registrationAuthorityNote} Emitimos certificados presencialmente no Centro de
+              Belo Horizonte e por videoconferência para todo o Brasil.
+            </p>
+            <p class="mt-3 text-xs leading-relaxed text-ink-soft">
+              <strong class="text-ink">{site.legalName}</strong> — {site.address} · Telefones:
+              {' '}{site.phoneDisplay} / {site.phoneSecondaryDisplay} · CNPJ {site.cnpj}
+            </p>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+            >
+              Tirar dúvida no WhatsApp
+            </a>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+    {data.faq.length > 0 && <Faq items={data.faq} />}
+
+    <section class="bg-white py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">Leia também</h2>
+        <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedPosts.map((related) => (
+            <BlogCard post={related} />
+          ))}
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          {solutionLinks.map((link) => (
+            <a
+              href={link.href}
+              class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-primary hover:text-primary"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Precisa do seu certificado digital hoje?"
+      description="A AllCert emite e-CPF e e-CNPJ por videoconferência no mesmo dia, com suporte na instalação e no primeiro uso."
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

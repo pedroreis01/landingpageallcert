@@ -1,0 +1,293 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/e-cpf';
+
+const title = 'Certificado Digital e-CPF | Emissão Online a partir de R$ 120 — AllCert';
+const email = site.email;
+const description =
+  'e-CPF ICP-Brasil a partir de R$ 120,00: acesse o e-CAC, assine contratos, peticione no PJe e entregue declarações. Emissão por videoconferência no mesmo dia, com A1, A3 ou nuvem.';
+
+const destaques = getProductsByIds(['ecpf-a1', 'ecpf-a3-nuvem', 'ecpf-a3-token', 'ecpf-a3-cartao']);
+
+const usos = [
+  {
+    title: 'e-CAC da Receita Federal',
+    text: 'Consultar situação fiscal, retificar declarações, acompanhar malha do Imposto de Renda, emitir certidões e outorgar procuração eletrônica.',
+  },
+  {
+    title: 'Assinatura de contratos e documentos',
+    text: 'Assinar contratos, distratos, recibos e documentos em PDF com validade jurídica equiparada à assinatura de próprio punho (MP 2.200-2/2001).',
+  },
+  {
+    title: 'Processos eletrônicos',
+    text: 'Peticionar no PJe, e-SAJ, PROJUDI e sistemas dos tribunais — uso essencial para advogados inscritos na OAB.',
+  },
+  {
+    title: 'Profissionais de saúde e contadores',
+    text: 'Assinar prontuário eletrônico, receita e atestado digital (CRM, CRO, COREN) e transmitir obrigações como contador responsável (CRC).',
+  },
+  {
+    title: 'Gov.br nível ouro e bancos',
+    text: 'Elevar a conta Gov.br ao nível ouro e autenticar-se em serviços bancários e previdenciários que exigem identificação forte.',
+  },
+  {
+    title: 'Empresário e representante legal',
+    text: 'Atuar como procurador da empresa no e-CAC e assinar por ela quando a obrigação aceita o e-CPF do representante com procuração eletrônica.',
+  },
+];
+
+const documentos = [
+  {
+    title: 'Documento de identidade original',
+    text: 'RG, CNH, passaporte ou carteira de conselho profissional — com foto e assinatura legíveis. Documentos muito desgastados são recusados na validação.',
+  },
+  {
+    title: 'CPF',
+    text: 'Dispensado quando o número já consta no documento de identidade apresentado.',
+  },
+  {
+    title: 'Comprovante de endereço',
+    text: 'Conta de consumo, fatura ou contrato recente, em nome do titular ou com vínculo comprovável.',
+  },
+  {
+    title: 'Carteira do conselho de classe',
+    text: 'Para incluir o registro OAB, CRM, CRO, CRC ou CREA no certificado, apresente a carteira do conselho vigente.',
+  },
+  {
+    title: 'Título de eleitor ou PIS/NIT',
+    text: 'Podem ser solicitados como dados complementares no preenchimento do pedido.',
+  },
+  {
+    title: 'Aparelho com câmera e internet',
+    text: 'Para a validação por videoconferência: celular ou computador com câmera, microfone e conexão estável, com os documentos originais em mãos.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha a modalidade',
+    text: 'A1 (arquivo no computador), A3 (token USB ou cartão) ou nuvem (celular, via aplicativo). O agente de registro ajuda a decidir pelo seu uso real.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Fotos legíveis pelo WhatsApp. Conferimos antes de agendar, para você não perder a validação.',
+  },
+  {
+    title: 'Faça a validação',
+    text: 'Por videoconferência em qualquer cidade do Brasil ou presencialmente no Centro de Belo Horizonte, das 9h às 18h.',
+  },
+  {
+    title: 'Use no mesmo dia',
+    text: 'Orientamos a instalação no computador ou a ativação do aplicativo e acompanhamos o primeiro acesso ao portal que você precisa.',
+  },
+];
+
+const faq = [
+  {
+    q: 'O que é o e-CPF?',
+    a: 'O e-CPF é o certificado digital ICP-Brasil emitido em nome de uma pessoa física. Ele vincula o seu CPF a um par de chaves criptográficas e permite assinar documentos com validade jurídica e autenticar-se em sistemas como e-CAC, PJe, Gov.br nível ouro e portais de conselhos profissionais.',
+  },
+  {
+    q: 'Quem precisa de e-CPF?',
+    a: 'Autônomos e profissionais liberais que emitem recibos e assinam contratos, advogados que peticionam no PJe, médicos que assinam prontuário e receita digital, contadores que transmitem obrigações, sócios que atuam como procuradores da empresa no e-CAC e qualquer pessoa que precise acessar o e-CAC em nome próprio.',
+  },
+  {
+    q: 'Qual a diferença entre e-CPF A1, A3 e nuvem?',
+    a: 'O A1 é um arquivo instalado exclusivamente no computador, com validade de 1 ano. O A3 fica gravado em token USB ou cartão com chip, com validade de 1 a 3 anos, e também é usado no computador, com a mídia conectada. O certificado em nuvem (Bird ID) é a única modalidade que funciona pelo celular: a chave fica em um cofre criptográfico e cada assinatura é autorizada pelo aplicativo.',
+  },
+  {
+    q: 'O e-CPF substitui o certificado da OAB?',
+    a: 'O certificado usado por advogados é um e-CPF que inclui o número de inscrição na OAB. É o mesmo produto, emitido com o registro do conselho, e há desconto profissional para advogados, médicos e contadores. Veja a página de certificado OAB para as condições.',
+  },
+  {
+    q: 'Posso usar o e-CPF no lugar do e-CNPJ da empresa?',
+    a: 'Em parte. Algumas obrigações aceitam o e-CPF do representante legal ou de um procurador com procuração eletrônica válida no e-CAC. Emissão de NF-e e a maioria dos acessos em nome da pessoa jurídica exigem o e-CNPJ.',
+  },
+  {
+    q: 'Quanto custa o e-CPF na AllCert?',
+    a: 'O e-CPF A1 (1 ano) começa em R$ 120,00. O certificado em nuvem Bird ID começa em R$ 50,00 no pacote de 5 transações. As opções A3 partem de R$ 150,00 para quem já tem mídia compatível e de R$ 240,00 no kit com token USB incluído.',
+  },
+  {
+    q: 'Perdi a senha do meu certificado. A AllCert recupera?',
+    a: 'Não. A senha de uso e a senha de revogação não ficam guardadas pela Autoridade de Registro nem pela Autoridade Certificadora — é uma exigência de segurança da ICP-Brasil. Sem a senha, é preciso revogar e emitir um novo certificado.',
+  },
+  {
+    q: 'A emissão por videoconferência tem a mesma validade do presencial?',
+    a: 'Sim. A validação por videoconferência é regulamentada pelo ITI e gera um certificado idêntico ao emitido presencialmente, com a mesma validade jurídica nacional.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital e-CPF',
+    description,
+    serviceType: 'Certificado Digital e-CPF ICP-Brasil',
+    path,
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado e-CPF', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Certificado digital para pessoa física"
+      title="e-CPF: sua identidade digital com validade jurídica"
+      description="Acesse o e-CAC, assine contratos, peticione no PJe e resolva a vida fiscal sem fila. Emissão por videoconferência em todo o Brasil ou presencial no Centro de BH."
+      bullets={[
+        'e-CPF A1 a partir de <strong>R$ 120,00</strong> · certificado em nuvem a partir de R$ 50,00',
+        'A1 (arquivo no computador), A3 (token ou cartão) ou nuvem (celular)',
+        'Validação por videoconferência em 10 a 20 minutos',
+        'Registro OAB, CRM, CRO, CRC ou CREA incluído quando você precisa',
+      ]}
+      image="/images/banner-pessoa-fisica.jpg"
+      imageAlt="Pessoa assinando documento digitalmente com certificado e-CPF"
+      ctaText="Emitir meu e-CPF"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Para que serve"
+      title="O que você resolve com um e-CPF"
+      intro="Com o e-CPF você se identifica com segurança em sistemas de governo e assina documentos sem precisar imprimir, reconhecer firma ou se deslocar."
+      items={usos}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Preços AllCert</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Opções de e-CPF: A1, nuvem, token USB e cartão
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preço de Autoridade de Registro, com nota fiscal e suporte incluído. Precisa do
+          certificado da empresa? Veja o
+          <a class="font-semibold text-primary hover:underline" href="/e-cnpj">e-CNPJ</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Documentos necessários"
+      title="O que ter em mãos na validação"
+      intro="Sempre documentos originais — na videoconferência, você os mostra à câmera; no presencial, entrega ao agente de registro."
+      items={documentos}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos até o e-CPF em uso"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Qual e-CPF combina com a sua rotina
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            Todo e-CPF tem a mesma validade jurídica. A diferença está em onde a chave privada fica
+            guardada — e isso define onde você consegue assinar.
+          </p>
+
+          <h3>e-CPF A1: arquivo no computador</h3>
+          <p>
+            O <a href="/certificado-digital-a1">A1</a> é um arquivo (.pfx) instalado
+            <strong> exclusivamente no computador</strong>, com validade de 1 ano. É a escolha de
+            quem assina muitos documentos sentado à mesma máquina e de quem integra o certificado a
+            um sistema. Como é arquivo, pode ser importado em mais de um computador do titular, com
+            a senha de importação. <strong>Não funciona em celular.</strong>
+          </p>
+
+          <h3>e-CPF A3: token USB ou cartão com chip</h3>
+          <p>
+            No <a href="/certificado-digital-a3">A3</a>, a chave nasce e morre dentro da mídia
+            criptográfica — ela nunca é exportada. Validade de 1 a 3 anos, o que reduz o custo por
+            ano, e portabilidade entre computadores: basta conectar o token (ou o cartão na
+            leitora) e instalar os drivers. É o formato mais comum entre advogados e médicos, que
+            assinam de máquinas diferentes.
+          </p>
+
+          <h3>Certificado em nuvem: o único para celular</h3>
+          <p>
+            Se o objetivo é assinar pelo smartphone, a resposta não é A1 nem A3: é o
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem (Bird ID)</a>. A chave
+            fica protegida em hardware criptográfico certificado e você autoriza cada assinatura
+            pelo aplicativo, de qualquer lugar, sem token e sem instalação no computador.
+          </p>
+
+          <h3>Profissionais com registro de classe</h3>
+          <p>
+            Advogados, médicos, dentistas, enfermeiros e contadores podem incluir o número do
+            conselho no e-CPF. É esse dado que o PJe, o prontuário eletrônico e alguns sistemas de
+            conselho leem para liberar o acesso. As condições especiais estão na página de
+            <a href="/certificado-digital-oab"> certificado OAB, CRM e CRC</a>.
+          </p>
+
+          <p>
+            Se o seu certificado atual está perto de vencer, veja
+            <a href="/renovacao-certificado-digital"> como renovar</a> — renovar antes do
+            vencimento, na mesma mídia, é mais rápido e costuma sair mais barato. Dúvidas por
+            e-mail: <a href={`mailto:${email}`}>{email}</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-pessoa-fisica', label: 'Certificado Digital Pessoa Física', description: 'Todas as opções de e-CPF, com preços e mídias.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e assinatura em nome da empresa.' },
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado exclusivamente no computador, validade de 1 ano.' },
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'O único que funciona pelo celular, via aplicativo Bird ID.' },
+        { href: '/certificado-digital-oab', label: 'Certificado OAB, CRM e CRC', description: 'Desconto profissional e validade de 3 anos.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Emita seu e-CPF hoje, sem sair de casa"
+      description="Fale com um agente de registro da AllCert pelo WhatsApp: conferimos seus documentos, agendamos a videoconferência e você usa o certificado no mesmo dia."
+    />
+
+    <NapCard withMap={false} />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

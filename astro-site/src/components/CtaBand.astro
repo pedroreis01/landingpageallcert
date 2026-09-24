@@ -1,0 +1,50 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  description,
+  ctaText = 'Emitir meu certificado agora',
+  ctaHref = site.whatsapp,
+} = Astro.props;
+---
+
+<section class="bg-ink py-16">
+  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold tracking-tight text-white md:text-3xl">{title}</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
+      {description}
+    </p>
+
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={ctaHref}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-primary-hover sm:w-auto"
+      >
+        {ctaText}
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+      <a
+        href={site.phoneHref}
+        class="inline-flex w-full items-center justify-center rounded-lg border border-white/25 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lavender hover:text-lavender sm:w-auto"
+      >
+        Ligar: {site.phoneDisplay}
+      </a>
+    </div>
+
+    <p class="mt-6 text-xs leading-relaxed text-white/50">
+      {site.legalName} · {site.address} · CNPJ {site.cnpj} · {site.registrationAuthorityNote}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,287 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/certificado-digital-belo-horizonte';
+
+const title = 'Certificado Digital em Belo Horizonte | AllCert — AR no Centro de BH';
+const description =
+  'Certificado digital ICP-Brasil em Belo Horizonte: e-CPF, e-CNPJ, A1, A3 e certificado em nuvem. Atendimento presencial no Centro de BH e emissão por videoconferência no mesmo dia.';
+
+const destaques = getProductsByIds(['ecnpj-a1', 'ecpf-a1', 'ecpf-a3-nuvem', 'ecpf-a3-token']);
+
+const diferenciais = [
+  {
+    title: 'Autoridade de Registro em BH',
+    text: 'A AllCert é AR vinculada à Autoridade Certificadora Soluti, credenciada pelo ITI dentro da ICP-Brasil. Emitimos o certificado do início ao fim, sem intermediários.',
+  },
+  {
+    title: 'Escritório no Centro, perto da Praça Sete',
+    text: 'Atendimento presencial na R. São Paulo, 1071 - Sl 809, a poucos metros da Praça Sete e da Avenida Afonso Pena, com fácil acesso por ônibus e metrô (Estação Central).',
+  },
+  {
+    title: 'Emissão no mesmo dia',
+    text: 'Com os documentos conferidos antes do agendamento, a validação leva de 10 a 20 minutos e o certificado sai no mesmo dia — inclusive por videoconferência.',
+  },
+  {
+    title: 'Videoconferência para toda a Grande BH',
+    text: 'Contagem, Betim, Nova Lima, Sabará, Ribeirão das Neves, Santa Luzia e Vespasiano: você emite de casa ou do escritório, sem deslocamento.',
+  },
+  {
+    title: 'Suporte na instalação e no primeiro uso',
+    text: 'Ajudamos a instalar o certificado, configurar o navegador e fazer o primeiro acesso ao e-CAC, à NF-e ou ao PJe. Suporte humano, por WhatsApp.',
+  },
+  {
+    title: 'Preço de AR, sem taxa de intermediação',
+    text: 'e-CPF A1 a partir de R$ 120,00 e e-CNPJ A1 a partir de R$ 200,00, com nota fiscal e garantia de emissão.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Escolha o certificado',
+    text: 'Fale com um agente de registro pelo WhatsApp. Em poucos minutos definimos se o caso pede e-CPF ou e-CNPJ, A1, A3 ou certificado em nuvem.',
+  },
+  {
+    title: 'Envie os documentos',
+    text: 'Conferimos RG ou CNH, CPF, comprovante de endereço e — para empresas — contrato social e cartão CNPJ <strong>antes</strong> de agendar, para não perder a validação.',
+  },
+  {
+    title: 'Faça a validação',
+    text: 'Presencial no Centro de BH ou por videoconferência com um agente de registro da AllCert, de segunda a sexta, das 9h às 18h.',
+  },
+  {
+    title: 'Receba e comece a usar',
+    text: 'Emissão concluída no mesmo dia, com orientação de instalação e primeiro acesso aos portais que você precisa.',
+  },
+];
+
+const regioes = [
+  {
+    title: 'Centro e Região Hospitalar',
+    text: 'Praça Sete, Avenida Afonso Pena, Rua da Bahia, Savassi e Santa Efigênia — atendimento presencial a poucos minutos a pé.',
+  },
+  {
+    title: 'Zona Sul e Centro-Sul',
+    text: 'Savassi, Funcionários, Lourdes, Sion, Belvedere, Buritis e Santo Antônio, com emissão presencial ou por videoconferência.',
+  },
+  {
+    title: 'Pampulha e Zona Norte',
+    text: 'Pampulha, Castelo, Ouro Preto, São Luiz, Venda Nova e Planalto — atendimento remoto sem sair do bairro.',
+  },
+  {
+    title: 'Barreiro e Zona Oeste',
+    text: 'Barreiro, Gutierrez, Prado, Calafate e Nova Suíça, com validação por videoconferência no mesmo dia.',
+  },
+  {
+    title: 'Região Metropolitana',
+    text: 'Contagem, Betim, Nova Lima, Sabará, Santa Luzia, Ribeirão das Neves, Vespasiano e Ibirité.',
+  },
+  {
+    title: 'Interior de Minas e outros estados',
+    text: 'O certificado ICP-Brasil tem validade nacional. Emitimos por videoconferência para qualquer cidade do Brasil.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Onde emitir certificado digital em Belo Horizonte?',
+    a: `A AllCert Certificados Digitais atende na ${site.address}, de segunda a sexta, das 9h às 18h. Também emitimos por videoconferência para qualquer bairro de BH, para a Região Metropolitana e para todo o Brasil. Telefones: ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}.`,
+  },
+  {
+    q: 'Preciso ir presencialmente à AllCert para emitir?',
+    a: 'Não. A validação presencial pode ser substituída por videoconferência com um agente de registro, conforme regulamentação do ITI. Você precisa apenas de um aparelho com câmera, internet estável e os documentos originais em mãos. Se preferir o atendimento presencial, recebemos você no escritório do Centro de Belo Horizonte.',
+  },
+  {
+    q: 'Quanto custa um certificado digital em BH?',
+    a: 'Na AllCert, o e-CPF A1 começa em R$ 120,00 (1 ano) e o e-CNPJ A1 em R$ 200,00 (1 ano). Certificados A3 em token ou cartão têm validade de até 3 anos e preços a partir de R$ 150,00. O certificado em nuvem Bird ID começa em R$ 50,00.',
+  },
+  {
+    q: 'Quais documentos preciso levar?',
+    a: 'Pessoa física: documento de identidade original com foto (RG, CNH ou carteira de conselho de classe), CPF e comprovante de endereço. Pessoa jurídica: além dos documentos do representante legal, contrato social ou requerimento de empresário atualizado e comprovante de inscrição no CNPJ.',
+  },
+  {
+    q: 'O certificado emitido em Belo Horizonte vale em todo o Brasil?',
+    a: 'Sim. Certificados ICP-Brasil têm validade jurídica nacional, garantida pela MP 2.200-2/2001. O mesmo certificado é aceito pela Receita Federal, prefeituras, tribunais, cartórios e bancos em qualquer estado.',
+  },
+  {
+    q: 'A AllCert é uma Autoridade Certificadora?',
+    a: `A AllCert é Autoridade de Registro (AR) vinculada à Autoridade Certificadora ${site.certificationAuthority}, dentro da ICP-Brasil. Na prática, somos nós que validamos sua identidade e emitimos o certificado; a AC é quem assina a cadeia de confiança. CNPJ ${site.cnpj}.`,
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital ICP-Brasil em Belo Horizonte',
+    description,
+    serviceType: 'Certificação Digital ICP-Brasil',
+    path,
+    areaServed: ['Belo Horizonte', 'Região Metropolitana de Belo Horizonte', 'Minas Gerais', 'Brasil'],
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado Digital em Belo Horizonte', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Autoridade de Registro em Belo Horizonte"
+      title="Certificado Digital em Belo Horizonte, emitido no mesmo dia"
+      description="e-CPF, e-CNPJ, A1, A3 e certificado em nuvem com atendimento presencial no Centro de BH ou validação por videoconferência, sem sair de casa."
+      bullets={[
+        'Escritório próprio na <strong>R. São Paulo, 1071 — Centro</strong>, a poucos metros da Praça Sete',
+        'Validação por videoconferência para toda a Grande BH e o Brasil',
+        'Agentes de registro credenciados ICP-Brasil, vinculados à AC Soluti',
+        'Suporte na instalação e no primeiro acesso ao e-CAC, NF-e e PJe',
+      ]}
+      image="/images/hero-allcert-real.jpg"
+      imageAlt="Atendimento da AllCert Certificados Digitais no Centro de Belo Horizonte"
+      ctaText="Emitir meu certificado em BH"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Por que emitir na AllCert"
+      title="Uma AR de verdade, com endereço fixo em Belo Horizonte"
+      intro="Não somos revenda nem marketplace de certificados. A AllCert é Autoridade de Registro credenciada, com escritório no Centro de BH e equipe própria de agentes de registro."
+      items={diferenciais}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Mais procurados em BH</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Certificados digitais com emissão em Belo Horizonte
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          Preços de Autoridade de Registro, com nota fiscal e suporte incluído. Não achou o que
+          procura? Veja todas as opções para
+          <a class="font-semibold text-primary hover:underline" href="/certificado-digital-pessoa-fisica">pessoa física</a>,
+          <a class="font-semibold text-primary hover:underline" href="/certificado-digital-pessoa-juridica">pessoa jurídica</a> e
+          <a class="font-semibold text-primary hover:underline" href="/certificado-digital-oab">profissionais OAB, CRM e CRC</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Quatro passos entre o primeiro contato e o certificado pronto"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <FeatureGrid
+      eyebrow="Onde atendemos"
+      title="Belo Horizonte, Região Metropolitana e todo o Brasil"
+      intro="O atendimento presencial fica no Centro, mas a validação por videoconferência elimina o deslocamento para quem está em qualquer bairro de BH ou fora da cidade."
+      items={regioes}
+      class="bg-neutral"
+    />
+
+    <section class="bg-white py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          O que saber antes de emitir seu certificado digital em BH
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            Certificado digital é a sua identidade eletrônica dentro da ICP-Brasil. Ele associa um
+            par de chaves criptográficas ao seu CPF ou ao CNPJ da empresa e permite assinar
+            documentos com validade jurídica equiparada à assinatura de próprio punho, conforme a
+            MP 2.200-2/2001.
+          </p>
+
+          <h3>Quem precisa de certificado digital em Belo Horizonte</h3>
+          <p>
+            Empresas que emitem NF-e ou NFS-e — inclusive no sistema da Prefeitura de Belo
+            Horizonte —, que enviam eSocial e EFD-Reinf ou que acessam o e-CAC da Receita Federal
+            em nome próprio precisam do <a href="/e-cnpj">e-CNPJ</a>. Pessoas físicas costumam
+            precisar do <a href="/e-cpf">e-CPF</a> para acessar o e-CAC, assinar contratos,
+            entregar declarações e participar de processos eletrônicos. Advogados inscritos na
+            OAB/MG usam o certificado para peticionar no PJe e no e-SAJ.
+          </p>
+
+          <h3>A1, A3 ou nuvem: qual escolher</h3>
+          <p>
+            O <a href="/certificado-digital-a1">certificado A1</a> é um arquivo instalado
+            exclusivamente no computador, com validade de 1 ano — é a escolha de quem emite nota
+            fiscal em sistema instalado na máquina ou integra o certificado a um ERP. O
+            <a href="/certificado-digital-a3"> certificado A3</a> fica gravado em token USB ou
+            cartão com chip, com validade de até 3 anos, e também é usado no computador, com a
+            mídia conectada. Já o
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem (Bird ID)</a> é a única
+            opção que funciona pelo celular: a chave fica em um cofre criptográfico e você autoriza
+            cada assinatura pelo aplicativo.
+          </p>
+
+          <h3>Presencial no Centro ou por videoconferência</h3>
+          <p>
+            As duas modalidades têm exatamente a mesma validade jurídica. No presencial, você vem
+            até a {site.address.split(' - Sl')[0]} com os documentos originais. Na
+            videoconferência, um agente de registro da AllCert conduz a validação por vídeo, com os
+            mesmos documentos em mãos. Em ambos os casos, a conferência prévia dos documentos é
+            feita antes do agendamento — é o que evita a validação reprovada e a necessidade de
+            remarcar.
+          </p>
+
+          <p>
+            Quer entender o processo em detalhe antes de decidir? Leia o
+            <a href="/blog/certificado-digital-belo-horizonte-como-emitir"> guia completo de emissão em Belo Horizonte</a>
+            no nosso blog.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-centro-bh', label: 'Certificado Digital no Centro de BH', description: 'Atendimento presencial na R. São Paulo, 1071 — a poucos metros da Praça Sete.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e assinatura em nome da empresa.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Sua identidade digital para e-CAC, contratos e processos eletrônicos.' },
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado no computador, validade de 1 ano.' },
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'O único que funciona pelo celular, via aplicativo Bird ID.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Emita seu certificado digital em Belo Horizonte hoje"
+      description="Fale com um agente de registro da AllCert pelo WhatsApp: conferimos seus documentos, agendamos a validação e emitimos no mesmo dia."
+    />
+
+    <NapCard />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>

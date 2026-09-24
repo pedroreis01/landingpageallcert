@@ -1,0 +1,287 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import NapCard from '../components/NapCard.astro';
+import { site } from '../data/site';
+import { getProductsByIds } from '../data/products';
+import { breadcrumbLd, faqLd, localBusinessLd, organizationLd, serviceLd } from '../lib/schema';
+
+const path = '/certificado-digital-centro-bh';
+
+const title = 'Certificado Digital no Centro de BH | AllCert — R. São Paulo, 1071';
+const description =
+  'Certificado digital ICP-Brasil no Centro de Belo Horizonte: escritório na R. São Paulo, 1071 - Sl 809, a poucos metros da Praça Sete. e-CPF, e-CNPJ, A1, A3 e nuvem com emissão no mesmo dia.';
+
+const destaques = getProductsByIds(['ecnpj-a1', 'ecpf-a1', 'ecpf-a3-token', 'ecpf-a3-nuvem']);
+
+const diferenciais = [
+  {
+    title: 'Endereço fixo na R. São Paulo, 1071',
+    text: `Sala 809, no Centro de Belo Horizonte, CEP 30170-131. Não é ponto de coleta nem stand em shopping: é o escritório da ${site.legalName}, com agentes de registro credenciados no local.`,
+  },
+  {
+    title: 'A 3 minutos da Praça Sete',
+    text: 'Entre a Avenida Afonso Pena e a Rua dos Tupis, no quadrilátero central. Dá para resolver o certificado no intervalo do almoço e voltar a pé para o trabalho.',
+  },
+  {
+    title: 'Metrô Estação Central e dezenas de linhas de ônibus',
+    text: 'Cerca de 600 metros da Estação Central do metrô e a poucos metros dos corredores de ônibus da Avenida Paraná, Rua Curitiba e Avenida Santos Dumont.',
+  },
+  {
+    title: 'Emissão no mesmo dia, com documentos conferidos antes',
+    text: 'Você manda os documentos pelo WhatsApp, nós conferimos, agendamos o horário e a validação leva de 10 a 20 minutos. Sai daqui com o certificado funcionando.',
+  },
+  {
+    title: 'Instalação feita na hora, no seu notebook',
+    text: 'Traga o notebook: instalamos o <strong>certificado A1 no computador</strong>, configuramos o token A3 ou ativamos o aplicativo do certificado em nuvem antes de você ir embora.',
+  },
+  {
+    title: 'Atendimento para escritórios e contabilidades da região',
+    text: 'Contadores e escritórios de advocacia do Centro, Barro Preto, Santa Efigênia, Funcionários e Savassi têm agenda prioritária para emissões em lote.',
+  },
+];
+
+const comoChegar = [
+  {
+    title: 'De metrô',
+    text: 'Desembarque na <strong>Estação Central</strong> e siga pela Avenida Santos Dumont até a Rua São Paulo. São cerca de 8 minutos a pé, todo o trajeto plano.',
+  },
+  {
+    title: 'De ônibus',
+    text: 'As linhas que passam pela Avenida Paraná, Rua Curitiba, Rua Espírito Santo e Avenida Afonso Pena param a menos de 300 metros do prédio.',
+  },
+  {
+    title: 'De carro',
+    text: 'Há estacionamentos rotativos na própria Rua São Paulo, na Rua dos Tupis e na Rua Espírito Santo. O trecho tem vagas de Área Azul sinalizadas.',
+  },
+  {
+    title: 'A pé, do quadrilátero central',
+    text: 'Praça Sete, Rua da Bahia, Rua São Paulo, Avenida Amazonas e Rua Rio de Janeiro: todo o entorno fica a menos de 10 minutos de caminhada.',
+  },
+  {
+    title: 'Da Savassi e dos Funcionários',
+    text: 'Cerca de 15 minutos de carro ou 20 de ônibus pela Avenida Afonso Pena, sentido Centro.',
+  },
+  {
+    title: 'Não quer se deslocar?',
+    text: 'A mesma validação pode ser feita por videoconferência, com a mesma validade jurídica. Você escolhe o que é mais prático no dia.',
+  },
+];
+
+const passos = [
+  {
+    title: 'Fale com um agente de registro',
+    text: 'Pelo WhatsApp ou pelos telefones ' + site.phoneDisplay + ' e ' + site.phoneSecondaryDisplay + '. Em minutos definimos se o caso pede e-CPF ou e-CNPJ, A1, A3 ou nuvem.',
+  },
+  {
+    title: 'Envie os documentos para conferência',
+    text: 'Fotos legíveis ou PDF. A conferência prévia é o que evita validação reprovada e uma segunda viagem até o Centro.',
+  },
+  {
+    title: 'Agende o horário na Sala 809',
+    text: 'De segunda a sexta, das 9h às 18h. Traga os documentos originais — não aceitamos cópia simples na validação presencial.',
+  },
+  {
+    title: 'Saia com o certificado pronto',
+    text: 'Emissão, instalação e primeiro acesso (e-CAC, NF-e, PJe) feitos ainda no atendimento, com a senha anotada por você.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Qual o endereço da AllCert no Centro de Belo Horizonte?',
+    a: `${site.legalName} — ${site.address}. O atendimento é de segunda a sexta, das 9h às 18h, e os telefones são ${site.phoneDisplay} e ${site.phoneSecondaryDisplay}. CNPJ ${site.cnpj}.`,
+  },
+  {
+    q: 'Preciso agendar ou posso ir direto ao escritório?',
+    a: 'Recomendamos agendar. O agendamento garante um agente de registro disponível no horário e permite conferir seus documentos antes — é o que faz a emissão sair no mesmo dia, sem risco de reprovação na validação.',
+  },
+  {
+    q: 'Tem estacionamento perto da R. São Paulo, 1071?',
+    a: 'Sim. Há estacionamentos particulares na própria Rua São Paulo e nas ruas dos Tupis, Espírito Santo e Curitiba, além de vagas rotativas de Área Azul no quarteirão. Quem vem de metrô desembarca na Estação Central, a cerca de 8 minutos a pé.',
+  },
+  {
+    q: 'Quais documentos devo levar ao atendimento presencial?',
+    a: 'Pessoa física: documento de identidade original com foto e assinatura (RG, CNH ou carteira de conselho de classe), CPF e comprovante de endereço. Pessoa jurídica: além dos documentos do representante legal, contrato social ou requerimento de empresário atualizado e comprovante de inscrição no CNPJ. Sempre os originais, não cópias.',
+  },
+  {
+    q: 'O certificado funciona no celular?',
+    a: 'Somente o certificado em nuvem (Bird ID) funciona pelo celular, com autorização de cada assinatura pelo aplicativo. O certificado A1 é um arquivo instalado exclusivamente no computador e o A3 exige token USB ou cartão conectado ao computador.',
+  },
+  {
+    q: 'Quanto custa emitir no Centro de BH?',
+    a: 'O preço é o mesmo do atendimento por videoconferência — não cobramos taxa pelo atendimento presencial. O e-CPF A1 começa em R$ 120,00, o e-CNPJ A1 em R$ 200,00 e o certificado em nuvem em R$ 50,00, sempre com nota fiscal.',
+  },
+];
+
+const jsonLd = [
+  organizationLd,
+  localBusinessLd,
+  serviceLd({
+    name: 'Emissão de Certificado Digital no Centro de Belo Horizonte',
+    description,
+    serviceType: 'Certificação Digital ICP-Brasil',
+    path,
+    areaServed: ['Centro de Belo Horizonte', 'Belo Horizonte', 'Minas Gerais', 'Brasil'],
+  }),
+  breadcrumbLd([
+    { name: 'Início', href: '/' },
+    { name: 'Certificado Digital em Belo Horizonte', href: '/certificado-digital-belo-horizonte' },
+    { name: 'Centro de BH', href: path },
+  ]),
+  faqLd(faq),
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+
+  <main>
+    <LandingHero
+      eyebrow="Atendimento presencial no Centro de BH"
+      title="Certificado Digital no Centro de Belo Horizonte"
+      description="Escritório próprio na R. São Paulo, 1071 — Sala 809, a poucos metros da Praça Sete. Emissão de e-CPF, e-CNPJ, A1, A3 e certificado em nuvem no mesmo dia."
+      bullets={[
+        '<strong>R. São Paulo, 1071 - Sl 809 - Centro</strong>, CEP 30170-131',
+        'A 8 minutos a pé da Estação Central do metrô',
+        'Segunda a sexta, das 9h às 18h, com agendamento pelo WhatsApp',
+        'Instalação e primeiro acesso feitos durante o atendimento',
+      ]}
+      image="/images/hero-allcert-real.jpg"
+      imageAlt="Escritório da AllCert Certificados Digitais no Centro de Belo Horizonte"
+      ctaText="Agendar atendimento no Centro"
+      secondaryText="Ver preços"
+      secondaryHref="#planos"
+    />
+
+    <FeatureGrid
+      eyebrow="Por que vir até a Sala 809"
+      title="Uma Autoridade de Registro de verdade, no coração de BH"
+      intro="A AllCert é Autoridade de Registro vinculada à Autoridade Certificadora Soluti, dentro da ICP-Brasil. Quem atende você no Centro é o mesmo agente de registro que emite o certificado."
+      items={diferenciais}
+    />
+
+    <section id="planos" class="bg-neutral py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-primary">Emissão no mesmo dia</p>
+        <h2 class="mt-2 max-w-3xl text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          Os certificados mais pedidos no atendimento do Centro
+        </h2>
+        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-base">
+          O preço é o mesmo do atendimento remoto. Veja também as páginas de
+          <a class="font-semibold text-primary hover:underline" href="/e-cpf">e-CPF</a>,
+          <a class="font-semibold text-primary hover:underline" href="/e-cnpj">e-CNPJ</a> e
+          <a class="font-semibold text-primary hover:underline" href="/certificado-digital-oab">certificado OAB</a>.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {destaques.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+
+    <FeatureGrid
+      eyebrow="Como chegar"
+      title="R. São Paulo, 1071 — Sala 809, entre a Afonso Pena e a Rua dos Tupis"
+      intro="O endereço fica dentro do quadrilátero central, com acesso fácil por metrô, ônibus e a pé."
+      items={comoChegar}
+      class="bg-neutral"
+    />
+
+    <FeatureGrid
+      eyebrow="Como funciona"
+      title="Do primeiro contato ao certificado instalado"
+      items={passos}
+      variant="number"
+      columns={4}
+    />
+
+    <section class="bg-neutral py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          O que esperar do atendimento presencial no Centro
+        </h2>
+
+        <div class="prose-allcert mt-8">
+          <p>
+            O Centro de Belo Horizonte concentra contabilidades, escritórios de advocacia,
+            consultórios e o comércio da Rua São Paulo, Rua dos Caetés e Avenida Amazonas. É de
+            longe a região que mais nos procura para emitir certificado digital — em boa parte
+            porque muita gente prefere resolver olhando nos olhos de um agente de registro,
+            sobretudo na primeira emissão.
+          </p>
+
+          <h3>A validação presencial em 20 minutos</h3>
+          <p>
+            Na Sala 809, o agente de registro confere seus documentos originais, registra as
+            imagens exigidas pela ICP-Brasil e conclui a validação. Em seguida, emitimos o
+            certificado e fazemos a instalação. Se você escolheu o
+            <a href="/certificado-digital-a1"> certificado A1</a>, o arquivo é instalado
+            exclusivamente no computador — traga o notebook e você sai daqui com tudo pronto. Se
+            escolheu o <a href="/certificado-digital-a3">A3</a>, gravamos o certificado no token
+            USB ou no cartão com chip e instalamos os drivers. Se a escolha foi o
+            <a href="/certificado-digital-em-nuvem"> certificado em nuvem (Bird ID)</a>, ativamos o
+            aplicativo no seu celular ali mesmo — é a única modalidade que funciona pelo
+            smartphone.
+          </p>
+
+          <h3>Presencial ou videoconferência: a validade é a mesma</h3>
+          <p>
+            A regulamentação do ITI permite substituir a validação presencial pela
+            videoconferência, e o certificado resultante é idêntico. Escolha pela conveniência:
+            quem trabalha no Centro costuma preferir passar aqui; quem está em Contagem, Betim,
+            Nova Lima ou em outro estado normalmente prefere o vídeo. A página
+            <a href="/certificado-digital-belo-horizonte"> certificado digital em Belo Horizonte</a>
+            detalha as duas modalidades e as regiões atendidas.
+          </p>
+
+          <h3>Emissão em lote para escritórios da região</h3>
+          <p>
+            Contabilidades do Centro e do Barro Preto que precisam emitir certificados para vários
+            clientes no mesmo dia podem reservar uma agenda fechada. O mesmo vale para escritórios
+            de advocacia que renovam os certificados da equipe — veja as condições para
+            <a href="/certificado-digital-oab"> advogados, médicos e contadores</a>.
+          </p>
+
+          <p>
+            Quer o roteiro completo, com documentos, prazos e erros que mais atrasam a emissão?
+            Leia o
+            <a href="/blog/certificado-digital-centro-bh-guia-completo"> guia do certificado digital no Centro de BH</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Faq items={faq} />
+
+    <RelatedLinks
+      title="Páginas relacionadas"
+      links={[
+        { href: '/certificado-digital-belo-horizonte', label: 'Certificado Digital em Belo Horizonte', description: 'Bairros atendidos, Região Metropolitana e emissão por videoconferência.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Identidade digital da pessoa física para e-CAC, contratos e processos.' },
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Para NF-e, e-CAC, eSocial e assinatura em nome da empresa.' },
+        { href: '/certificado-digital-a1', label: 'Certificado A1', description: 'Arquivo instalado exclusivamente no computador, validade de 1 ano.' },
+        { href: '/certificado-digital-a3', label: 'Certificado A3', description: 'Token USB ou cartão com chip, validade de até 3 anos.' },
+        { href: '/renovacao-certificado-digital', label: 'Renovação de Certificado', description: 'Vencido ou perto de vencer? Veja como renovar sem perder prazos.' },
+      ]}
+    />
+
+    <CtaBand
+      title="Agende seu atendimento no Centro de Belo Horizonte"
+      description="Mande uma mensagem no WhatsApp com o tipo de certificado que você precisa. Conferimos os documentos, reservamos o horário na Sala 809 e emitimos no mesmo dia."
+    />
+
+    <NapCard title="AllCert no Centro de BH — R. São Paulo, 1071, Sala 809" />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Base>
