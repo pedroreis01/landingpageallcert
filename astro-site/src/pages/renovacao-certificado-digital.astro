@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import LandingHero from '../components/LandingHero.astro';
+import NapCard from '../components/NapCard.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Faq from '../components/Faq.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+const title = 'Renovação de Certificado Digital em Belo Horizonte | AllCert';
+const description = 'Renove seu certificado digital e-CNPJ ou e-CPF por videoconferência com a AllCert. Validação online rápida em Belo Horizonte.';
+
+const faqs = [
+  {
+    q: 'Posso renovar certificado digital vencido por videoconferência?',
+    a: 'Sim! Desde que você já tenha biometria cadastrada no sistema ICP-Brasil ou CNH válida, a emissão da renovação é aprovada 100% online por videoconferência.',
+  },
+  {
+    q: 'O que acontece se eu não renovar a tempo?',
+    a: 'Seu certificado expira e o acesso ao e-CAC, eSocial, emissão de Notas Fiscais e peticionamento eletrônico fica bloqueado até que um novo certificado seja emitido.',
+  },
+];
+---
+
+<Base title={title} description={description}>
+  <Header />
+  <main>
+    <LandingHero
+      title="Renovação de Certificado Digital em Belo Horizonte"
+      subtitle="Renove seu e-CNPJ ou e-CPF de forma rápida e segura por videoconferência ou no Centro de BH."
+      badge="Renovação Expressa"
+    />
+
+    <section class="section py-12 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="md:col-span-2 space-y-6">
+            <h2 class="text-3xl font-bold text-slate-900">Evite a Paralisação da Sua Empresa</h2>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              A renovação preventiva do certificado digital garante que sua empresa continue emitindo Notas Fiscais, transmitindo guias do eSocial e acessando o e-CAC da Receita Federal sem interrupção.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              Na AllCert, a renovação por videoconferência leva apenas 10 minutos. Nossa equipe faz a conferência prévia da documentação para garantir que a emissão aconteça no mesmo dia.
+            </p>
+          </div>
+          <div>
+            <NapCard />
+          </div>
+        </div>
+
+        <FeatureGrid
+          title="Vantagens da Renovação AllCert"
+          items={[
+            {
+              title: 'Atendimento Express',
+              description: 'Validação e emissão em minutos sem filas.',
+              icon: 'zap',
+            },
+            {
+              title: '100% Online',
+              description: 'Faça por videoconferência de onde estiver em BH ou qualquer lugar do Brasil.',
+              icon: 'video',
+            },
+            {
+              title: 'Suporte Pós-Emissão',
+              description: 'Ajudamos na instalação do novo certificado A1 no computador ou no dispositivo.',
+              icon: 'help-circle',
+            },
+          ]}
+        />
+      </div>
+    </section>
+
+    <Faq items={faqs} />
+
+    <CtaBand
+      title="Renove Seu Certificado Agora"
+      subtitle="Fale com nosso atendimento no WhatsApp (31) 97151-7322 e agende sua renovação."
+    />
+
+    <RelatedLinks
+      links={[
+        { href: '/e-cnpj', label: 'Certificado e-CNPJ', description: 'Certificado para empresas.' },
+        { href: '/e-cpf', label: 'Certificado e-CPF', description: 'Certificado para pessoa física.' },
+        { href: '/certificado-digital-em-nuvem', label: 'Certificado em Nuvem', description: 'Uso no celular e tablet.' },
+      ]}
+    />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</Base>
